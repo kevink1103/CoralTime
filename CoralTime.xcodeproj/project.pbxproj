@@ -8,22 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		0AE513EC21DFAA0400AE3A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */; };
-		0AE513EE21DFAA0400AE3A2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE513ED21DFAA0400AE3A2E /* ViewController.swift */; };
 		0AE513F121DFAA0400AE3A2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE513EF21DFAA0400AE3A2E /* Main.storyboard */; };
 		0AE513F421DFAA0400AE3A2E /* CoralTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AE513F221DFAA0400AE3A2E /* CoralTime.xcdatamodeld */; };
 		0AE513F621DFAA0500AE3A2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE513F521DFAA0500AE3A2E /* Assets.xcassets */; };
 		0AE513F921DFAA0500AE3A2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE513F721DFAA0500AE3A2E /* LaunchScreen.storyboard */; };
+		0AE5140221DFACF700AE3A2E /* PlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5140121DFACF700AE3A2E /* PlansTableViewController.swift */; };
+		0AE5140421DFADE400AE3A2E /* AddPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5140321DFADE400AE3A2E /* AddPlanTableViewController.swift */; };
+		0AE5140621DFAE3B00AE3A2E /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5140521DFAE3B00AE3A2E /* CDManager.swift */; };
+		0AE5140A21DFB18D00AE3A2E /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5140921DFB18D00AE3A2E /* DateManager.swift */; };
+		0AE5140C21DFB86600AE3A2E /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5140B21DFB86600AE3A2E /* ActionsViewController.swift */; };
+		0AE5140E21E3217100AE3A2E /* AddActionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5140D21E3217100AE3A2E /* AddActionTableViewController.swift */; };
+		0AE5141021E3476100AE3A2E /* EditActionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5140F21E3476100AE3A2E /* EditActionTableViewController.swift */; };
+		0AE5141221E3B61700AE3A2E /* EditPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5141121E3B61700AE3A2E /* EditPlanTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0AE513E821DFAA0400AE3A2E /* CoralTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoralTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AE513ED21DFAA0400AE3A2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0AE513F021DFAA0400AE3A2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AE513F321DFAA0400AE3A2E /* CoralTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoralTime.xcdatamodel; sourceTree = "<group>"; };
 		0AE513F521DFAA0500AE3A2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AE513F821DFAA0500AE3A2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AE513FA21DFAA0500AE3A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AE5140121DFACF700AE3A2E /* PlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansTableViewController.swift; sourceTree = "<group>"; };
+		0AE5140321DFADE400AE3A2E /* AddPlanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanTableViewController.swift; sourceTree = "<group>"; };
+		0AE5140521DFAE3B00AE3A2E /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
+		0AE5140921DFB18D00AE3A2E /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		0AE5140B21DFB86600AE3A2E /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		0AE5140D21E3217100AE3A2E /* AddActionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActionTableViewController.swift; sourceTree = "<group>"; };
+		0AE5140F21E3476100AE3A2E /* EditActionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionTableViewController.swift; sourceTree = "<group>"; };
+		0AE5141121E3B61700AE3A2E /* EditPlanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +71,9 @@
 			isa = PBXGroup;
 			children = (
 				0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */,
-				0AE513ED21DFAA0400AE3A2E /* ViewController.swift */,
+				0AE5140521DFAE3B00AE3A2E /* CDManager.swift */,
+				0AE5140921DFB18D00AE3A2E /* DateManager.swift */,
+				0AE5140021DFACE800AE3A2E /* ViewControllers */,
 				0AE513EF21DFAA0400AE3A2E /* Main.storyboard */,
 				0AE513F521DFAA0500AE3A2E /* Assets.xcassets */,
 				0AE513F721DFAA0500AE3A2E /* LaunchScreen.storyboard */,
@@ -65,6 +81,19 @@
 				0AE513F221DFAA0400AE3A2E /* CoralTime.xcdatamodeld */,
 			);
 			path = CoralTime;
+			sourceTree = "<group>";
+		};
+		0AE5140021DFACE800AE3A2E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0AE5140121DFACF700AE3A2E /* PlansTableViewController.swift */,
+				0AE5140321DFADE400AE3A2E /* AddPlanTableViewController.swift */,
+				0AE5141121E3B61700AE3A2E /* EditPlanTableViewController.swift */,
+				0AE5140B21DFB86600AE3A2E /* ActionsViewController.swift */,
+				0AE5140D21E3217100AE3A2E /* AddActionTableViewController.swift */,
+				0AE5140F21E3476100AE3A2E /* EditActionTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +167,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE5141221E3B61700AE3A2E /* EditPlanTableViewController.swift in Sources */,
+				0AE5140C21DFB86600AE3A2E /* ActionsViewController.swift in Sources */,
+				0AE5140421DFADE400AE3A2E /* AddPlanTableViewController.swift in Sources */,
+				0AE5140A21DFB18D00AE3A2E /* DateManager.swift in Sources */,
+				0AE5140621DFAE3B00AE3A2E /* CDManager.swift in Sources */,
 				0AE513F421DFAA0400AE3A2E /* CoralTime.xcdatamodeld in Sources */,
-				0AE513EE21DFAA0400AE3A2E /* ViewController.swift in Sources */,
 				0AE513EC21DFAA0400AE3A2E /* AppDelegate.swift in Sources */,
+				0AE5141021E3476100AE3A2E /* EditActionTableViewController.swift in Sources */,
+				0AE5140221DFACF700AE3A2E /* PlansTableViewController.swift in Sources */,
+				0AE5140E21E3217100AE3A2E /* AddActionTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
