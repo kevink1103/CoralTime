@@ -50,8 +50,18 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         drawFrame(image: targetFrame, width_rate: 0.8, height_rate: 0.8)
         
         // Time Text Color
-        targetTime.textColor = UIColor.white
         calcedTime.textColor = UIColor.white
+        targetTime.textColor = UIColor.white
+        
+        // Time Text Size depending on screen width
+        if screenSize.width <= 350 {
+            calcedTime.font = UIFont.boldSystemFont(ofSize: 27)
+            targetTime.font = UIFont.boldSystemFont(ofSize: 25)
+        }
+        else {
+            calcedTime.font = UIFont.boldSystemFont(ofSize: 30)
+            targetTime.font = UIFont.boldSystemFont(ofSize: 28)
+        }
 
         // Long Press
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(sender:)))
