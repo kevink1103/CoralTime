@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func DateToString(date: Date) -> String {
     let dateFormatter = DateFormatter()
@@ -24,3 +25,13 @@ func TimeToString(date: Date) -> String {
     return converted
 }
 
+func procCalcedTime(target: Date, actionSet: [ActionCD]) -> Date {
+    var accTime = 0  // Accumulated time in seconds
+    
+    for action in actionSet {
+        let time = TimeToString(date: action.duration!).split(separator: ":")
+        accTime += Int(time[0])! * 3600
+        accTime += Int(time[1])! * 60
+    }
+    return target - TimeInterval(accTime)
+}

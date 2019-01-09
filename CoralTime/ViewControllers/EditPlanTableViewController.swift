@@ -60,7 +60,7 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Limit titleEmoji Length
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var maxLength = 30
+        var maxLength = 22
         if textField == titleEmoji {
             maxLength = 1
         }

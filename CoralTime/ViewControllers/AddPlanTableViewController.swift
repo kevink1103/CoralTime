@@ -23,6 +23,10 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
         titleEmoji.delegate = self
         planTitle.delegate = self
         
+        let ranPlan = SampleText.getRanPlan().split(separator: "#")
+        titleEmoji.placeholder = String(ranPlan[0])
+        planTitle.placeholder = String(ranPlan[1])
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -45,7 +49,7 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Limit titleEmoji Length
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var maxLength = 30
+        var maxLength = 22
         if textField == titleEmoji {
             maxLength = 1
         }

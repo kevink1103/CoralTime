@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ActionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -27,8 +28,9 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Table Row Height
+        // Table Row Height and Inset
         tableView.rowHeight = 60
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: calcedFrame.frame.height + targetFrame.frame.height + 10, right: 0)
         
         // Navigation Title
         var accTitle = ""
@@ -37,6 +39,19 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         accTitle.append(thisPlan!.title!)
         navItem.title = accTitle
+        
+        // Floating Times Frame
+        let screenSize: CGRect = UIScreen.main.bounds
+        calcedFrame.frame = CGRect(x: calcedFrame.frame.minX, y: calcedFrame.frame.minY, width: screenSize.width, height: calcedFrame.frame.maxY - calcedFrame.frame.minY)
+        calcedFrame.frame = calcedFrame.frame
+        targetFrame.frame = CGRect(x: targetFrame.frame.minX, y: targetFrame.frame.minY, width: screenSize.width, height: targetFrame.frame.maxY - targetFrame.frame.minY)
+        targetFrame.frame = targetFrame.frame
+        drawFrame(image: calcedFrame, width_rate: 0.88, height_rate: 0.85)
+        drawFrame(image: targetFrame, width_rate: 0.8, height_rate: 0.8)
+        
+        // Time Text Color
+        targetTime.textColor = UIColor.white
+        calcedTime.textColor = UIColor.white
 
         // Long Press
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(sender:)))
@@ -46,6 +61,10 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         actionSet = CDManager.loadActions(view: self)
         tableView.reloadData()
+        
+        // Update Time Texts
+        targetTime.text = DateToString(date: (thisPlan?.target)!)
+        calcedTime.text = DateToString(date: procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet))
     }
     
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
@@ -53,7 +72,11 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
             let touchPoint = sender.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 if indexPath.row >= 0 {
-                     editTable()
+                    if tableView.isEditing != true {
+                        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+                        feedbackGenerator.impactOccurred()
+                    }
+                    editTable()
                 }
             }
         }
@@ -70,6 +93,35 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.setEditing(false, animated: true)
             navigationItem.rightBarButtonItem = addButton
         }
+    }
+    
+    func drawFrame(image: UIImageView, width_rate: CGFloat, height_rate: CGFloat) {
+        image.layer.backgroundColor = UIColor.init(white: 0, alpha: 0).cgColor
+        
+        // Set the size of rectangle
+        let rectWidth = image.frame.width * width_rate
+        let rectHeight = image.frame.height * height_rate
+        // Find center of actual frame to set rectangle in middle
+        let xf: CGFloat = (image.frame.width - rectWidth) / 2
+        let yf: CGFloat = (image.frame.height - rectHeight) / 2
+        let rect = CGRect(x: xf, y: yf, width: CGFloat(rectWidth), height: CGFloat(rectHeight))
+        let clipPath: CGPath = UIBezierPath(roundedRect: rect, cornerRadius: rectHeight).cgPath
+        
+        let backgroundColor = ColorManager.highlightColor.cgColor
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = clipPath
+        shapeLayer.fillColor = backgroundColor
+        shapeLayer.cornerRadius = 1.00;
+        
+        // Shadow
+        shapeLayer.shadowColor = UIColor.gray.cgColor
+        shapeLayer.shadowOpacity = 0.85
+        shapeLayer.shadowOffset = CGSize(width: 3, height: 3)
+        shapeLayer.shadowRadius = 8.5
+        shapeLayer.shouldRasterize = false
+        
+        image.layer.addSublayer(shapeLayer)
     }
     
     // MARK: - Table view data source

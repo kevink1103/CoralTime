@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class PlansTableViewController: UITableViewController {
     
@@ -21,6 +22,9 @@ class PlansTableViewController: UITableViewController {
         
         // Large Title
         // self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // Navigation Bar Tint
+        self.navigationController?.navigationBar.tintColor = ColorManager.highlightColor
         
         // Table Row Height
         tableView.rowHeight = 60
@@ -46,7 +50,11 @@ class PlansTableViewController: UITableViewController {
             let touchPoint = sender.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 if indexPath.row >= 0 {
-                     editTable()
+                    if tableView.isEditing != true {
+                        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+                        feedbackGenerator.impactOccurred()
+                    }
+                    editTable()
                 }
             }
         }
