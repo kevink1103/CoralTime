@@ -17,7 +17,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func feedbackPressed(_ sender: Any) {
+    @IBAction func emailPressed(_ sender: Any) {
         sendEmail()
     }
     
@@ -26,12 +26,22 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         UIApplication.shared.open(url)
     }
     
+    @IBAction func feedbackPressed(_ sender: Any) {
+        guard let url = URL(string: "https://kevink1103.github.io/blog/2019/01/10/coral-time-feedback.html") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    @IBAction func privacyPressed(_ sender: Any) {
+        guard let url = URL(string: "https://kevink1103.github.io/blog/2019/01/10/coral-time-privacy-policy.html") else { return }
+        UIApplication.shared.open(url)
+    }
+    
     func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["kevink1103@gmail.com"])
-            mail.setMessageBody("<p>[Coral Time Feedback]</p><br/>", isHTML: true)
+            mail.setMessageBody("<p>[Coral Time]</p><br/>", isHTML: true)
             
             present(mail, animated: true)
         } else {
