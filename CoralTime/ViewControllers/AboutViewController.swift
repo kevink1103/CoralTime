@@ -17,7 +17,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func enquiryPressed(_ sender: Any) {
+    @IBAction func feedbackPressed(_ sender: Any) {
         sendEmail()
     }
     
@@ -31,7 +31,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["kevink1103@gmail.com"])
-            mail.setMessageBody("<p>[Coral Time Enquiry]</p><br/>", isHTML: true)
+            mail.setMessageBody("<p>[Coral Time Feedback]</p><br/>", isHTML: true)
             
             present(mail, animated: true)
         } else {

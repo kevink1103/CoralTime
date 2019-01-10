@@ -24,13 +24,15 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var targetFrame: UIImageView!
     @IBOutlet weak var calcedTime: UILabel!
     @IBOutlet weak var targetTime: UILabel!
+    @IBOutlet weak var coralTimeLabel: UILabel!
+    @IBOutlet weak var targetTimeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Table Row Height and Inset
         tableView.rowHeight = 60
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: calcedFrame.frame.height + targetFrame.frame.height + 10, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: calcedFrame.frame.height + targetFrame.frame.height + 15, right: 0)
         
         // Navigation Title
         var accTitle = ""
@@ -46,12 +48,14 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         calcedFrame.frame = calcedFrame.frame
         targetFrame.frame = CGRect(x: targetFrame.frame.minX, y: targetFrame.frame.minY, width: screenSize.width, height: targetFrame.frame.maxY - targetFrame.frame.minY)
         targetFrame.frame = targetFrame.frame
-        drawFrame(image: calcedFrame, width_rate: 0.88, height_rate: 0.85)
-        drawFrame(image: targetFrame, width_rate: 0.8, height_rate: 0.8)
+        drawFrame(image: calcedFrame, width_rate: 0.85, height_rate: 0.95, color: ColorManager.highlightColor)
+        drawFrame(image: targetFrame, width_rate: 0.8, height_rate: 0.9, color: ColorManager.darkerColor)
         
         // Time Text Color
         calcedTime.textColor = UIColor.white
         targetTime.textColor = UIColor.white
+        coralTimeLabel.textColor = UIColor.white
+        targetTimeLabel.textColor = UIColor.white
         
         // Time Text Size depending on screen width
         if screenSize.width <= 350 {
@@ -105,7 +109,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func drawFrame(image: UIImageView, width_rate: CGFloat, height_rate: CGFloat) {
+    func drawFrame(image: UIImageView, width_rate: CGFloat, height_rate: CGFloat, color: UIColor) {
         image.layer.backgroundColor = UIColor.init(white: 0, alpha: 0).cgColor
         
         // Set the size of rectangle
@@ -117,7 +121,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         let rect = CGRect(x: xf, y: yf, width: CGFloat(rectWidth), height: CGFloat(rectHeight))
         let clipPath: CGPath = UIBezierPath(roundedRect: rect, cornerRadius: rectHeight).cgPath
         
-        let backgroundColor = ColorManager.highlightColor.cgColor
+        let backgroundColor = color.cgColor
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = clipPath

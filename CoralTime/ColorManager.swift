@@ -11,4 +11,5 @@ import UIKit
 
 class ColorManager {
     static let highlightColor = UIColor(named: "living_coral")!
+    static let darkerColor = UIColor(named: "dark_coral")!
 }
