@@ -47,7 +47,6 @@ class CDManager {
             plan.title = view.planTitle.text!
             plan.target = view.getDatePicker()
             plan.order = Int16(view.previousVC.planSet.count.advanced(by: 1))
-            print(plan)
             try? context.save()
         }
         // Firebase Analytics
