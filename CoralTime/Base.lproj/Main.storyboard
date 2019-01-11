@@ -847,7 +847,7 @@ Swipe Left - Delete</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uc4-Qk-rbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120.8" y="774.96251874062978"/>
+            <point key="canvasLocation" x="121" y="805"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
