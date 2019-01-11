@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AC64C1121E60638006D0195 /* SampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1021E60638006D0195 /* SampleText.swift */; };
 		0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1321E6462F006D0195 /* ColorManager.swift */; };
+		0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1521E82C44006D0195 /* CustomCell.swift */; };
 		0AE513EC21DFAA0400AE3A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */; };
 		0AE513F121DFAA0400AE3A2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE513EF21DFAA0400AE3A2E /* Main.storyboard */; };
 		0AE513F421DFAA0400AE3A2E /* CoralTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AE513F221DFAA0400AE3A2E /* CoralTime.xcdatamodeld */; };
@@ -30,6 +31,7 @@
 		0AC64C1021E60638006D0195 /* SampleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleText.swift; sourceTree = "<group>"; };
 		0AC64C1221E608BF006D0195 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0AC64C1321E6462F006D0195 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		0AC64C1521E82C44006D0195 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		0AE513E821DFAA0400AE3A2E /* CoralTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoralTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AE513F021DFAA0400AE3A2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				0AE5140921DFB18D00AE3A2E /* DateManager.swift */,
 				0AC64C1321E6462F006D0195 /* ColorManager.swift */,
 				0AC64C1021E60638006D0195 /* SampleText.swift */,
+				0AC64C1521E82C44006D0195 /* CustomCell.swift */,
 				0AE5141521E5E30F00AE3A2E /* HexToUIColor.swift */,
 				0AE5140021DFACE800AE3A2E /* ViewControllers */,
 				0AE513EF21DFAA0400AE3A2E /* Main.storyboard */,
@@ -188,6 +191,7 @@
 				0AC64C1121E60638006D0195 /* SampleText.swift in Sources */,
 				0AE5140A21DFB18D00AE3A2E /* DateManager.swift in Sources */,
 				0AE5140621DFAE3B00AE3A2E /* CDManager.swift in Sources */,
+				0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */,
 				0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */,
 				0AE513F421DFAA0400AE3A2E /* CoralTime.xcdatamodeld in Sources */,
 				0AE513EC21DFAA0400AE3A2E /* AppDelegate.swift in Sources */,

@@ -13,6 +13,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // Global Variables
     var previousVC = PlansTableViewController()
+    var planIndex = 0
     var thisPlan: PlanCD? = nil
     var actionSet: [ActionCD] = []
     
@@ -30,9 +31,8 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Table Row Height and Inset
-        tableView.rowHeight = 60
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: calcedFrame.frame.height + targetFrame.frame.height + 15, right: 0)
+        // Table View Inset
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: calcedFrame.frame.height + targetFrame.frame.height + 25, right: 0)
         
         // Navigation Title
         var accTitle = ""
@@ -77,8 +77,8 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
         
         // Update Time Texts
-        targetTime.text = DateToString(date: (thisPlan?.target)!)
         calcedTime.text = DateToString(date: procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet))
+        targetTime.text = DateToString(date: (thisPlan?.target)!)
     }
     
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
@@ -150,7 +150,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "actionCell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "actionCell", for: indexPath as IndexPath) as! MyCustomCell
         let thisAction = actionSet[indexPath.row]
         
         var accTitle = ""
@@ -158,11 +158,12 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
             accTitle = thisAction.emoji! + " "
         }
         accTitle.append(thisAction.title!)
-        cell.textLabel?.text = accTitle
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
-        cell.detailTextLabel?.text = TimeToString(date: thisAction.duration!)
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 25)
-        cell.detailTextLabel?.textColor = UIColor.gray
+        
+        cell.titleLabel?.text = accTitle
+        cell.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        cell.detailLabel?.text = TimeToString(date: thisAction.duration!)
+        cell.detailLabel?.font = UIFont.systemFont(ofSize: 25)
+        cell.detailLabel?.textColor = UIColor.gray
         
         return cell
     }
@@ -190,6 +191,8 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
             // Remove this plan
             actionSet = CDManager.removeAction(view: self, index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            calcedTime.text = DateToString(date: procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet))
         }
         else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -219,6 +222,10 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         else if let editVC = segue.destination as? EditActionTableViewController {
             editVC.previousVC = self
             editVC.actionIndex = (sender as? Int)!
+        }
+        else if let planEditVC = segue.destination as? EditPlanTableViewController {
+            planEditVC.previousVC = previousVC
+            planEditVC.planIndex = planIndex
         }
     }
 

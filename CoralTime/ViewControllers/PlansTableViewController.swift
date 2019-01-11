@@ -26,9 +26,6 @@ class PlansTableViewController: UITableViewController {
         // Navigation Bar Tint
         self.navigationController?.navigationBar.tintColor = ColorManager.highlightColor
         
-        // Table Row Height
-        tableView.rowHeight = 60
-        
         // Long Press
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(sender:)))
         self.view.addGestureRecognizer(longPressRecognizer)
@@ -161,6 +158,7 @@ class PlansTableViewController: UITableViewController {
         else if let actionVC = segue.destination as? ActionsViewController {
             actionVC.previousVC = self
             actionVC.thisPlan = planSet[((sender as? Int)!)]
+            actionVC.planIndex = (sender as? Int)!
         }
     }
     
