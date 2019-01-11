@@ -8,13 +8,15 @@
 
 import UIKit
 import MessageUI
+import FirebaseAnalytics
 
 class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func emailPressed(_ sender: Any) {

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>207633707229-jeu9nnnhm2f95ne2uo85g9nlu8l82b3c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.207633707229-jeu9nnnhm2f95ne2uo85g9nlu8l82b3c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCKgfvBoHAy4HaE5tJ91oQ8HJXQMQ_yDzQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>207633707229</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kevinkim.CoralTime</string>
+	<key>PROJECT_ID</key>
+	<string>coraltime-kevinkim</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coraltime-kevinkim.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:207633707229:ios:56a2b1b45c116d6b</string>
+	<key>DATABASE_URL</key>
+	<string>https://coraltime-kevinkim.firebaseio.com</string>
+</dict>
+</plist>

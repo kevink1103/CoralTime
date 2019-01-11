@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
     
@@ -20,6 +21,7 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         titleEmoji.delegate = self
         planTitle.delegate = self
         

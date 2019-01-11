@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 // Manage Core Data
 class CDManager {
@@ -49,6 +50,12 @@ class CDManager {
             print(plan)
             try? context.save()
         }
+        // Firebase Analytics
+        Analytics.logEvent("add_plan", parameters: [
+            "emoji": view.titleEmoji.text! as NSObject,
+            "title": view.planTitle.text! as NSObject,
+            "target_time": DateToString(date: view.getDatePicker()) as NSObject
+            ])
     }
 
     // Add an Action inside a Plan
@@ -62,6 +69,13 @@ class CDManager {
             view.previousVC.thisPlan?.addToActionR(action)
             try? context.save()
         }
+        // Firebase Analytics
+        Analytics.logEvent("add_action", parameters: [
+            "plan": (view.previousVC.thisPlan?.emoji)! + " " + (view.previousVC.thisPlan?.title)! as NSObject,
+            "emoji": view.titleEmoji.text! as NSObject,
+            "title": view.actionTitle.text! as NSObject,
+            "duration": TimeToString(date: view.getDatePicker()) as NSObject
+            ])
     }
     
     // Update a Plan

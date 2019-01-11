@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import FirebaseAnalytics
 
 class ActionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     

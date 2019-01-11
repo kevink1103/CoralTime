@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // No Nav Bar Shadow
         UINavigationBar.appearance().shadowImage = UIImage()
         // UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        // Firebase
+        FirebaseApp.configure()
         
         return true
     }

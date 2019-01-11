@@ -6,5 +6,5 @@ target 'CoralTime' do
   use_frameworks!
 
   # Pods for CoralTime
-  pod 'GoogleAnalytics'
+  pod 'Firebase/Core'
 end

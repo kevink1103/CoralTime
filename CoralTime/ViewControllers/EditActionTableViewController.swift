@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class EditActionTableViewController: UITableViewController, UITextFieldDelegate {
     
@@ -23,6 +24,7 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         titleEmoji.delegate = self
         actionTitle.delegate = self
         
