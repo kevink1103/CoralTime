@@ -30,9 +30,9 @@ class CDManager {
     }
     
     // Load Actions inside a Plan and Sort
-    static func loadActions(view: ActionsViewController) -> [ActionCD] {
+    static func loadActions(plan: PlanCD) -> [ActionCD] {
         var actionSet: [ActionCD] = []
-        actionSet = view.thisPlan?.actionR?.allObjects as! [ActionCD]
+        actionSet = plan.actionR?.allObjects as! [ActionCD]
         actionSet = actionSet.sorted { (left, right) -> Bool in
             left.order < right.order
         }
@@ -46,6 +46,8 @@ class CDManager {
             plan.emoji = view.titleEmoji.text!
             plan.title = view.planTitle.text!
             plan.target = view.getDatePicker()
+            plan.noti = false
+            plan.noti_id = ""
             plan.order = Int16(view.previousVC.planSet.count.advanced(by: 1))
             try? context.save()
         }
@@ -75,6 +77,15 @@ class CDManager {
             "title": view.actionTitle.text! as NSObject,
             "duration": TimeToString(date: view.getDatePicker()) as NSObject
             ])
+    }
+    
+    // Update Notification Info in a Plan
+    static func notiPlan(plan: PlanCD, flag: Bool, identifier: String) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            plan.noti = flag
+            plan.noti_id = identifier
+            try? context.save()
+        }
     }
     
     // Update a Plan

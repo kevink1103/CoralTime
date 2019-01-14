@@ -28,6 +28,8 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var targetTime: UILabel!
     @IBOutlet weak var coralTimeLabel: UILabel!
     @IBOutlet weak var targetTimeLabel: UILabel!
+    @IBOutlet weak var coralButton: UIButton!
+    @IBOutlet weak var targetButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,12 +76,25 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        actionSet = CDManager.loadActions(view: self)
+        actionSet = CDManager.loadActions(plan: thisPlan!)
         tableView.reloadData()
         
         // Update Time Texts
-        calcedTime.text = DateToString(date: procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet))
+        let calcedDate = procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet)
+        calcedTime.text = DateToString(date: calcedDate)
         targetTime.text = DateToString(date: (thisPlan?.target)!)
+        
+        // Update Notification
+        if thisPlan!.noti == true {
+            NotificationManager.cancelNotification(plan: thisPlan!)
+            NotificationManager.createNotification(plan: thisPlan!)
+        }
+        // Debug
+        NotificationManager.listAllNotifications()
+    }
+    
+    @IBAction func coralPressed(_ sender: Any) {
+        NotificationManager.manageNotification(view: self)
     }
     
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
@@ -151,7 +166,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "actionCell", for: indexPath as IndexPath) as! MyCustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "actionCell", for: indexPath as IndexPath) as! ActionCell
         let thisAction = actionSet[indexPath.row]
         
         var accTitle = ""

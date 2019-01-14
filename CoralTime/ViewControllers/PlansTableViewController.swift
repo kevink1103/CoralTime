@@ -31,6 +31,9 @@ class PlansTableViewController: UITableViewController {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(sender:)))
         self.view.addGestureRecognizer(longPressRecognizer)
         
+        // Notification Request
+        NotificationManager.requestAuthorization(view: self)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -41,6 +44,29 @@ class PlansTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         planSet = CDManager.loadPlans(view: self)
         tableView.reloadData()
+        
+        // Update All Notifications
+        for plan in planSet {
+            if plan.noti == true {
+                NotificationManager.cancelNotification(plan: plan)
+                NotificationManager.createNotification(plan: plan)
+            }
+        }
+        // Debug
+        NotificationManager.listAllNotifications()
+    }
+    
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        let thisPlan = planSet[sender.tag]
+        
+        if sender.isOn {
+            NotificationManager.createNotification(plan: thisPlan)
+        }
+        else {
+            NotificationManager.cancelNotification(plan: thisPlan)
+        }
+        // Debug
+        NotificationManager.listAllNotifications()
     }
     
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
@@ -83,7 +109,7 @@ class PlansTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "planCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "planCell", for: indexPath) as! PlanCell
         let thisPlan = planSet[indexPath.row]
         
         var accTitle = ""
@@ -91,8 +117,17 @@ class PlansTableViewController: UITableViewController {
             accTitle = thisPlan.emoji! + " "
         }
         accTitle.append(thisPlan.title!)
-        cell.textLabel?.text = accTitle
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
+        cell.titleLabel?.text = accTitle
+        cell.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        
+        cell.notiSwitch.tintColor = ColorManager.highlightColor
+        cell.notiSwitch.tag = indexPath.row
+        if thisPlan.noti != true {
+            cell.notiSwitch.setOn(false, animated: true)
+        }
+        else {
+            cell.notiSwitch.setOn(true, animated: true)
+        }
         
         return cell
     }

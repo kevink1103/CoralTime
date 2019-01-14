@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
-class MyCustomCell: UITableViewCell {
+class PlanCell: UITableViewCell {
+    @IBOutlet weak var myView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var notiSwitch: UISwitch!
+}
+
+class ActionCell: UITableViewCell {
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!

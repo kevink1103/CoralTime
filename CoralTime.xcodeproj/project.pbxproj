@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A9BC94D21EC633B00EDB7A8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */; };
 		0AC64C1121E60638006D0195 /* SampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1021E60638006D0195 /* SampleText.swift */; };
 		0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1321E6462F006D0195 /* ColorManager.swift */; };
 		0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1521E82C44006D0195 /* CustomCell.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		0AC64C1021E60638006D0195 /* SampleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleText.swift; sourceTree = "<group>"; };
 		0AC64C1221E608BF006D0195 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0AC64C1321E6462F006D0195 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
@@ -93,10 +95,11 @@
 				0AC64C1221E608BF006D0195 /* Playground.playground */,
 				0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */,
 				0AE5140521DFAE3B00AE3A2E /* CDManager.swift */,
+				0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */,
 				0AE5140921DFB18D00AE3A2E /* DateManager.swift */,
 				0AC64C1321E6462F006D0195 /* ColorManager.swift */,
-				0AC64C1021E60638006D0195 /* SampleText.swift */,
 				0AC64C1521E82C44006D0195 /* CustomCell.swift */,
+				0AC64C1021E60638006D0195 /* SampleText.swift */,
 				0AE5141521E5E30F00AE3A2E /* HexToUIColor.swift */,
 				0AE5140021DFACE800AE3A2E /* ViewControllers */,
 				0AE513EF21DFAA0400AE3A2E /* Main.storyboard */,
@@ -269,6 +272,7 @@
 				0AE5140421DFADE400AE3A2E /* AddPlanTableViewController.swift in Sources */,
 				0AC64C1121E60638006D0195 /* SampleText.swift in Sources */,
 				0AE5140A21DFB18D00AE3A2E /* DateManager.swift in Sources */,
+				0A9BC94D21EC633B00EDB7A8 /* NotificationManager.swift in Sources */,
 				0AE5140621DFAE3B00AE3A2E /* CDManager.swift in Sources */,
 				0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */,
 				0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */,

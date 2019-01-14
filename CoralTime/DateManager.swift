@@ -26,6 +26,10 @@ func TimeToString(date: Date) -> String {
 }
 
 func procCalcedTime(target: Date, actionSet: [ActionCD]) -> Date {
+    if actionSet.count == 0 {
+        return target
+    }
+    
     var accTime = 0  // Accumulated time in seconds
     
     for action in actionSet {
