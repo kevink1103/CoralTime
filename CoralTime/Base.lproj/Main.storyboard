@@ -31,10 +31,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9l-J6-eyj">
-                                                    <rect key="frame" x="16" y="15" width="267" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="267" id="bQp-kX-E85"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="16" y="15" width="288" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -49,12 +46,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="centerY" secondItem="a5j-cb-qGq" secondAttribute="centerY" id="4CW-Eu-DSx"/>
-                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="leading" secondItem="a5j-cb-qGq" secondAttribute="leading" constant="16" id="4vY-nZ-IWO"/>
-                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="top" secondItem="8DZ-BB-Zkk" secondAttribute="top" id="95M-c9-LnN"/>
-                                                <constraint firstItem="8DZ-BB-Zkk" firstAttribute="leading" secondItem="F9l-J6-eyj" secondAttribute="trailing" constant="29" id="GkL-RU-8Jf"/>
-                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="top" secondItem="a5j-cb-qGq" secondAttribute="top" constant="15" id="cek-2I-AOC"/>
-                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="centerY" secondItem="8DZ-BB-Zkk" secondAttribute="centerY" id="hp4-w4-xlm"/>
+                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="top" secondItem="8DZ-BB-Zkk" secondAttribute="top" id="1Q0-bv-hHQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="8DZ-BB-Zkk" secondAttribute="trailing" constant="14" id="1e9-A6-gGy"/>
+                                                <constraint firstItem="8DZ-BB-Zkk" firstAttribute="centerY" secondItem="a5j-cb-qGq" secondAttribute="centerY" id="ESO-2T-R5N"/>
+                                                <constraint firstItem="8DZ-BB-Zkk" firstAttribute="leading" secondItem="F9l-J6-eyj" secondAttribute="trailing" constant="8" symbolic="YES" id="N6U-1o-vPp"/>
+                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="leading" secondItem="a5j-cb-qGq" secondAttribute="leading" constant="16" id="Pk2-LI-NGi"/>
+                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="centerY" secondItem="8DZ-BB-Zkk" secondAttribute="centerY" id="UQk-p0-Vdb"/>
+                                                <constraint firstItem="F9l-J6-eyj" firstAttribute="leading" secondItem="a5j-cb-qGq" secondAttribute="leading" constant="16" id="vAe-Ru-GYA"/>
+                                                <constraint firstItem="8DZ-BB-Zkk" firstAttribute="top" secondItem="a5j-cb-qGq" secondAttribute="top" constant="15" id="xsz-5y-2qp"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -97,7 +96,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIi-hs-BPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="45"/>
+            <point key="canvasLocation" x="856.79999999999995" y="44.527736131934034"/>
         </scene>
         <!--ACTIONS-->
         <scene sceneID="lbM-Wu-0uV">
