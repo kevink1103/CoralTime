@@ -389,7 +389,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36S-gX-Zwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="-654"/>
+            <point key="canvasLocation" x="857" y="-812"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eRM-Ox-Dy2">
@@ -513,7 +513,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEn-uK-Jbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680.8" y="-654.42278860569718"/>
+            <point key="canvasLocation" x="1681" y="-812"/>
         </scene>
         <!--EDIT ACTION-->
         <scene sceneID="3xB-jU-zHi">
@@ -648,7 +648,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBJ-PI-KR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681" y="805"/>
+            <point key="canvasLocation" x="1681" y="950"/>
         </scene>
         <!--EDIT PLAN-->
         <scene sceneID="id6-m4-ub0">
@@ -783,7 +783,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mi0-AJ-gOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="805"/>
+            <point key="canvasLocation" x="857" y="950"/>
         </scene>
         <!--About-->
         <scene sceneID="A3b-2v-skv">
@@ -814,7 +814,9 @@
                                     <constraint firstAttribute="width" constant="115" id="zKW-oz-fvl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Website"/>
+                                <state key="normal" title="Website">
+                                    <color key="titleColor" name="living_coral"/>
+                                </state>
                                 <connections>
                                     <action selector="websitePressed:" destination="qRa-lz-0uk" eventType="touchUpInside" id="4Jr-ti-Fmg"/>
                                 </connections>
@@ -842,7 +844,9 @@ Swipe Left - Delete</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiK-sg-fjk">
                                 <rect key="frame" x="260" y="598" width="115" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Feedback"/>
+                                <state key="normal" title="Feedback">
+                                    <color key="titleColor" name="living_coral"/>
+                                </state>
                                 <connections>
                                     <action selector="feedbackPressed:" destination="qRa-lz-0uk" eventType="touchUpInside" id="Y0Q-Ex-odW"/>
                                 </connections>
@@ -850,7 +854,9 @@ Swipe Left - Delete</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bde-TW-MN7">
                                 <rect key="frame" x="115" y="598" width="145" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Privacy Policy"/>
+                                <state key="normal" title="Privacy Policy">
+                                    <color key="titleColor" name="living_coral"/>
+                                </state>
                                 <connections>
                                     <action selector="privacyPressed:" destination="qRa-lz-0uk" eventType="touchUpInside" id="c2h-Hz-jkf"/>
                                 </connections>
@@ -894,7 +900,7 @@ Swipe Left - Delete</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uc4-Qk-rbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121" y="805"/>
+            <point key="canvasLocation" x="121" y="950"/>
         </scene>
     </scenes>
     <resources>

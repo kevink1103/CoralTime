@@ -53,7 +53,7 @@ class PlansTableViewController: UITableViewController {
             }
         }
         // Debug
-        NotificationManager.listAllNotifications()
+        // NotificationManager.listAllNotifications()
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
@@ -66,7 +66,7 @@ class PlansTableViewController: UITableViewController {
             NotificationManager.cancelNotification(plan: thisPlan)
         }
         // Debug
-        NotificationManager.listAllNotifications()
+        // NotificationManager.listAllNotifications()
     }
     
     @objc func longPressed(sender: UILongPressGestureRecognizer) {

@@ -90,7 +90,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
             NotificationManager.createNotification(plan: thisPlan!)
         }
         // Debug
-        NotificationManager.listAllNotifications()
+        // NotificationManager.listAllNotifications()
     }
     
     @IBAction func coralPressed(_ sender: Any) {

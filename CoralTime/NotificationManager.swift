@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import UserNotifications
+import Firebase
 
 class NotificationManager {
     
@@ -106,6 +107,13 @@ class NotificationManager {
             }
         }
         CDManager.notiPlan(plan: plan, flag: true, identifier: request.identifier)
+        
+        // Firebase Analytics
+        Analytics.logEvent("create_noti", parameters: [
+            "emoji": plan.emoji! as NSObject,
+            "title": plan.title! as NSObject,
+            "target_time": DateToString(date: date) as NSObject
+            ])
     }
     
     static func cancelNotification(plan: PlanCD) {
