@@ -351,7 +351,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="sXC-cg-Lkb">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="sXC-cg-Lkb">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="568307510.97591996">
                                                         <!--2019-01-04 15:11:50 +0000-->
