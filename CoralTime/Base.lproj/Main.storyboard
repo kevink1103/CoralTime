@@ -211,13 +211,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-cH-B5e">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-cH-B5e" customClass="CustomButton" customModule="CoralTime" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="522" width="375" height="70"/>
                                 <connections>
                                     <action selector="coralPressed:" destination="I2T-dh-uO0" eventType="touchUpInside" id="xug-gm-UNH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnJ-qK-hpA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnJ-qK-hpA" customClass="CustomButton" customModule="CoralTime" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="597" width="375" height="60"/>
                                 <connections>
                                     <segue destination="7Og-x2-fkr" kind="show" id="kPx-TZ-0an"/>
@@ -908,6 +908,6 @@ Swipe Left - Delete</string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ode-xd-5mz"/>
+        <segue reference="kPx-TZ-0an"/>
     </inferredMetricsTieBreakers>
 </document>

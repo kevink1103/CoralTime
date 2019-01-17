@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2FFD5321F08BFE007C2FBB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */; };
 		0A9BC94D21EC633B00EDB7A8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */; };
 		0AC64C1121E60638006D0195 /* SampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1021E60638006D0195 /* SampleText.swift */; };
 		0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1321E6462F006D0195 /* ColorManager.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		0AC64C1021E60638006D0195 /* SampleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleText.swift; sourceTree = "<group>"; };
 		0AC64C1221E608BF006D0195 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -99,6 +101,7 @@
 				0AE5140921DFB18D00AE3A2E /* DateManager.swift */,
 				0AC64C1321E6462F006D0195 /* ColorManager.swift */,
 				0AC64C1521E82C44006D0195 /* CustomCell.swift */,
+				0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */,
 				0AC64C1021E60638006D0195 /* SampleText.swift */,
 				0AE5141521E5E30F00AE3A2E /* HexToUIColor.swift */,
 				0AE5140021DFACE800AE3A2E /* ViewControllers */,
@@ -279,6 +282,7 @@
 				0AE513F421DFAA0400AE3A2E /* CoralTime.xcdatamodeld in Sources */,
 				0AE513EC21DFAA0400AE3A2E /* AppDelegate.swift in Sources */,
 				0AE5141021E3476100AE3A2E /* EditActionTableViewController.swift in Sources */,
+				0A2FFD5321F08BFE007C2FBB /* CustomButton.swift in Sources */,
 				0AE5140221DFACF700AE3A2E /* PlansTableViewController.swift in Sources */,
 				0AE5141D21E5F85E00AE3A2E /* AboutViewController.swift in Sources */,
 				0AE5140E21E3217100AE3A2E /* AddActionTableViewController.swift in Sources */,
@@ -431,6 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DH6DZ9MJN6;
 				INFOPLIST_FILE = CoralTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DH6DZ9MJN6;
 				INFOPLIST_FILE = CoralTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -54,6 +54,10 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         drawFrame(image: calcedFrame, width_rate: 0.85, height_rate: 0.95, color: ColorManager.highlightColor)
         drawFrame(image: targetFrame, width_rate: 0.8, height_rate: 0.9, color: ColorManager.darkerColor)
         
+        // Time Button Frame
+//        drawButton(image: coralButton, width_rate: 0.85, height_rate: 0.95)
+//        drawButton(image: targetButton, width_rate: 0.8, height_rate: 0.9)
+        
         // Time Text Color
         calcedTime.textColor = UIColor.white
         targetTime.textColor = UIColor.white
