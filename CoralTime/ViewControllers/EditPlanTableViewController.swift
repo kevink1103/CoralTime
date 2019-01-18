@@ -59,6 +59,14 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
             planSet: previousVC.planSet,
             index: planIndex
         )
+        // Remove the Last View Controller from Navigation Stack
+        // if it is ActionsViewController
+        var navigationArray = self.navigationController?.viewControllers
+        let lastViewController = navigationArray![(navigationArray!.count)-2]
+        if (lastViewController is ActionsViewController) {
+            navigationArray!.remove(at: (navigationArray?.count)! - 2)
+            navigationController?.viewControllers = navigationArray!
+        }
         navigationController?.popViewController(animated: true)
     }
     
