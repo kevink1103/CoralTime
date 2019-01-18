@@ -21,8 +21,10 @@ class PlansTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Large Title
-        // self.navigationController?.navigationBar.prefersLargeTitles = true
+        // Context Update
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            CDManager.masterContext = context
+        }
         
         // Navigation Bar Tint
         self.navigationController?.navigationBar.tintColor = ColorManager.highlightColor
@@ -42,7 +44,7 @@ class PlansTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        planSet = CDManager.loadPlans(view: self)
+        planSet = CDManager.loadPlans()
         tableView.reloadData()
         
         // Update All Notifications
@@ -159,7 +161,10 @@ class PlansTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Remove this plan
-            planSet = CDManager.removePlan(view: self, index: indexPath.row)
+            planSet = CDManager.removePlan(
+                planSet: planSet,
+                index: indexPath.row
+            )
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         else if editingStyle == .insert {
@@ -175,7 +180,11 @@ class PlansTableViewController: UITableViewController {
     
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        planSet = CDManager.rearrangePlans(view: self, from: fromIndexPath.row, to: to.row)
+        planSet = CDManager.rearrangePlans(
+            planSet: planSet,
+            from: fromIndexPath.row,
+            to: to.row
+        )
      }
     
     // MARK: - Navigation

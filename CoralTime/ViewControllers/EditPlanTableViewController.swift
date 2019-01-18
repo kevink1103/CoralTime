@@ -44,14 +44,21 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func donePressed(_ sender: Any) {
         let titleText = planTitle.text
         if titleText!.count > 0 {
-            CDManager.updatePlan(view: self)
+            CDManager.updatePlan(
+                plan: thisPlan!,
+                emoji: titleEmoji.text!,
+                title: planTitle.text!,
+                target: getDatePicker()
+            )
         }
         navigationController?.popViewController(animated: true)
-
     }
     
     @IBAction func removePressed(_ sender: Any) {
-        previousVC.planSet = CDManager.removePlan(view: previousVC, index: planIndex)
+        previousVC.planSet = CDManager.removePlan(
+            planSet: previousVC.planSet,
+            index: planIndex
+        )
         navigationController?.popViewController(animated: true)
     }
     

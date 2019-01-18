@@ -44,13 +44,21 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     @IBAction func donePressed(_ sender: Any) {
         let titleText = actionTitle.text
         if titleText!.count > 0 {
-            CDManager.updateAction(view: self)
+            CDManager.updateAction(
+                action: thisAction!,
+                emoji: titleEmoji.text!,
+                title: actionTitle.text!,
+                duration: getDatePicker()
+            )
         }
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func removePressed(_ sender: Any) {
-        previousVC.actionSet = CDManager.removeAction(view: previousVC, index: actionIndex)
+        previousVC.actionSet = CDManager.removeAction(
+            actionSet: previousVC.actionSet,
+            index: actionIndex
+        )
         navigationController?.popViewController(animated: true)
     }
     

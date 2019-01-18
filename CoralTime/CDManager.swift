@@ -8,19 +8,22 @@
 
 import Foundation
 import UIKit
+import CoreData
 import Firebase
 
 // Manage Core Data
 class CDManager {
     
+    // Used to store Context
+    static var masterContext: NSManagedObjectContext? = nil
+    
     // Load Plans and Sort
-    static func loadPlans(view: PlansTableViewController) -> [PlanCD] {
+    static func loadPlans() -> [PlanCD] {
         var planSet: [PlanCD] = []
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            if let plansCD = try? context.fetch(PlanCD.fetchRequest()) as? [PlanCD] {
-                if let plans = plansCD {
-                    planSet = plans
-                }
+        
+        if let plansCD = try? self.masterContext!.fetch(PlanCD.fetchRequest()) as? [PlanCD] {
+            if let plans = plansCD {
+                planSet = plans
             }
         }
         planSet = planSet.sorted { (left, right) -> Bool in
@@ -32,6 +35,7 @@ class CDManager {
     // Load Actions inside a Plan and Sort
     static func loadActions(plan: PlanCD) -> [ActionCD] {
         var actionSet: [ActionCD] = []
+        
         actionSet = plan.actionR?.allObjects as! [ActionCD]
         actionSet = actionSet.sorted { (left, right) -> Bool in
             left.order < right.order
@@ -40,132 +44,124 @@ class CDManager {
     }
 
     // Add a Plan
-    static func addPlan(view: AddPlanTableViewController) {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let plan = PlanCD(entity: PlanCD.entity(), insertInto: context)
-            plan.emoji = view.titleEmoji.text!
-            plan.title = view.planTitle.text!
-            plan.target = view.getDatePicker()
-            plan.noti = false
-            plan.noti_id = ""
-            plan.order = Int16(view.previousVC.planSet.count.advanced(by: 1))
-            try? context.save()
-        }
+    static func addPlan(emoji: String, title: String, target: Date, order: Int16) {
+        let plan = PlanCD(entity: PlanCD.entity(), insertInto: self.masterContext!)
+        
+        plan.emoji = emoji
+        plan.title = title
+        plan.target = target
+        plan.noti = false
+        plan.noti_id = ""
+        plan.order = order
+        try? self.masterContext!.save()
+
         // Firebase Analytics
         Analytics.logEvent("add_plan", parameters: [
-            "emoji": view.titleEmoji.text! as NSObject,
-            "title": view.planTitle.text! as NSObject,
-            "target_time": DateToString(date: view.getDatePicker()) as NSObject
+            "emoji": emoji as NSObject,
+            "title": title as NSObject,
+            "target_time": DateToString(date: target) as NSObject
             ])
     }
 
     // Add an Action inside a Plan
-    static func addAction(view: AddActionTableViewController) {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let action = ActionCD(entity: ActionCD.entity(), insertInto: context)
-            action.emoji = view.titleEmoji.text!
-            action.title = view.actionTitle.text!
-            action.duration = view.getDatePicker()
-            action.order = Int16(view.previousVC.actionSet.count)
-            view.previousVC.thisPlan?.addToActionR(action)
-            try? context.save()
-        }
+    static func addAction(plan: PlanCD, emoji: String, title: String, duration: Date, order: Int16) {
+        let action = ActionCD(entity: ActionCD.entity(), insertInto: self.masterContext!)
+        
+        action.emoji = emoji
+        action.title = title
+        action.duration = duration
+        action.order = order
+        plan.addToActionR(action)
+        try? self.masterContext!.save()
+        
         // Firebase Analytics
         Analytics.logEvent("add_action", parameters: [
-            "plan": (view.previousVC.thisPlan?.emoji)! + " " + (view.previousVC.thisPlan?.title)! as NSObject,
-            "emoji": view.titleEmoji.text! as NSObject,
-            "title": view.actionTitle.text! as NSObject,
-            "duration": TimeToString(date: view.getDatePicker()) as NSObject
+            "plan": (plan.emoji)! + " " + (plan.title)! as NSObject,
+            "emoji": emoji as NSObject,
+            "title": title as NSObject,
+            "duration": TimeToString(date: duration) as NSObject
             ])
     }
     
     // Update Notification Info in a Plan
     static func notiPlan(plan: PlanCD, flag: Bool, identifier: String) {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            plan.noti = flag
-            plan.noti_id = identifier
-            try? context.save()
-        }
+        plan.noti = flag
+        plan.noti_id = identifier
+        try? self.masterContext!.save()
     }
     
     // Update a Plan
-    static func updatePlan(view: EditPlanTableViewController) {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            view.thisPlan!.emoji = view.titleEmoji.text
-            view.thisPlan!.title = view.planTitle.text!
-            view.thisPlan!.target = view.getDatePicker()
-            try? context.save()
-        }
+    static func updatePlan(plan: PlanCD, emoji: String, title: String, target: Date) {
+        plan.emoji = emoji
+        plan.title = title
+        plan.target = target
+        try? self.masterContext!.save()
     }
     
     // Update an Action inside a Plan
-    static func updateAction(view: EditActionTableViewController) {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            view.thisAction!.emoji = view.titleEmoji.text
-            view.thisAction!.title = view.actionTitle.text!
-            view.thisAction!.duration = view.getDatePicker()
-            try? context.save()
-        }
+    static func updateAction(action: ActionCD, emoji: String, title: String, duration: Date) {
+        action.emoji = emoji
+        action.title = title
+        action.duration = duration
+        try? self.masterContext!.save()
     }
     
     // Remove a Plan
-    static func removePlan(view: PlansTableViewController, index: Int) -> [PlanCD] {
-        var planSet: [PlanCD] = view.planSet
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            context.delete(planSet[index])
-            planSet.remove(at: index)
-            for (idx, plan) in planSet.enumerated() {
-                plan.order = Int16(idx)
-            }
-            try? context.save()
+    static func removePlan(planSet: [PlanCD], index: Int) -> [PlanCD] {
+        var resultSet: [PlanCD] = planSet
+        
+        self.masterContext!.delete(resultSet[index])
+        try? self.masterContext!.save()
+        
+        resultSet.remove(at: index)
+        for (idx, plan) in resultSet.enumerated() {
+            plan.order = Int16(idx)
         }
-        return planSet
+        return resultSet
     }
     
     // Remove an Action
-    static func removeAction(view: ActionsViewController, index: Int) -> [ActionCD] {
-        var actionSet: [ActionCD] = view.actionSet
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            context.delete(actionSet[index])
-            actionSet.remove(at: index)
-            for (idx, action) in actionSet.enumerated() {
-                action.order = Int16(idx)
-            }
-            try? context.save()
+    static func removeAction(actionSet: [ActionCD], index: Int) -> [ActionCD] {
+        var resultSet: [ActionCD] = actionSet
+        
+        self.masterContext!.delete(resultSet[index])
+        try? self.masterContext!.save()
+        
+        resultSet.remove(at: index)
+        for (idx, action) in resultSet.enumerated() {
+            action.order = Int16(idx)
         }
-        return actionSet
+        return resultSet
     }
     
     // Rearrage Plans
-    static func rearrangePlans(view: PlansTableViewController, from: Int, to: Int) -> [PlanCD] {
-        var planSet: [PlanCD] = view.planSet
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let source = planSet[from]
-            planSet.remove(at: from)
-            planSet.insert(source, at: to)
-            
-            for (idx, plan) in planSet.enumerated() {
-                plan.order = Int16(idx)
-                try? context.save()
-            }
+    static func rearrangePlans(planSet: [PlanCD], from: Int, to: Int) -> [PlanCD] {
+        var resultSet: [PlanCD] = planSet
+        let source = resultSet[from]
+        
+        resultSet.remove(at: from)
+        resultSet.insert(source, at: to)
+        
+        for (idx, plan) in resultSet.enumerated() {
+            plan.order = Int16(idx)
+            try? self.masterContext!.save()
         }
-        return planSet
+        return resultSet
     }
     
     // Rearrage Actions
-    static func rearrangeActions(view: ActionsViewController, from: Int, to: Int) -> [ActionCD] {
-        var actionSet: [ActionCD] = view.actionSet
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let source = actionSet[from]
-            actionSet.remove(at: from)
-            actionSet.insert(source, at: to)
-            
-            for (idx, action) in actionSet.enumerated() {
-                action.order = Int16(idx)
-                try? context.save()
-            }
+    static func rearrangeActions(actionSet: [ActionCD], from: Int, to: Int) -> [ActionCD] {
+        var resultSet: [ActionCD] = actionSet
+        let source = resultSet[from]
+        
+        resultSet.remove(at: from)
+        resultSet.insert(source, at: to)
+        
+        for (idx, action) in resultSet.enumerated() {
+            action.order = Int16(idx)
+            try? self.masterContext!.save()
         }
-        return actionSet
+        return resultSet
     }
     
 }

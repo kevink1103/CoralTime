@@ -39,7 +39,12 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func donePressed(_ sender: Any) {
         let titleText = planTitle.text
         if titleText!.count > 0 {
-            CDManager.addPlan(view: self)
+            CDManager.addPlan(
+                emoji: titleEmoji.text!,
+                title: planTitle.text!,
+                target: getDatePicker(),
+                order: Int16(previousVC.planSet.count)
+            )
         }
         navigationController?.popViewController(animated: true)
     }

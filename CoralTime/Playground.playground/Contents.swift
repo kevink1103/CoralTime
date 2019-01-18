@@ -1,1 +1,1 @@
-
+static var temp = "one"

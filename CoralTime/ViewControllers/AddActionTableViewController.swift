@@ -39,7 +39,13 @@ class AddActionTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func donePressed(_ sender: Any) {
         let titleText = actionTitle.text
         if titleText!.count > 0 {
-            CDManager.addAction(view: self)
+            CDManager.addAction(
+                plan: previousVC.thisPlan!,
+                emoji: titleEmoji.text!,
+                title: actionTitle.text!,
+                duration: getDatePicker(),
+                order: Int16(previousVC.actionSet.count)
+            )
         }
         navigationController?.popViewController(animated: true)
     }

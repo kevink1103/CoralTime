@@ -209,7 +209,10 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Remove this plan
-            actionSet = CDManager.removeAction(view: self, index: indexPath.row)
+            actionSet = CDManager.removeAction(
+                actionSet: actionSet,
+                index: indexPath.row
+            )
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             calcedTime.text = DateToString(date: procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet))
@@ -227,7 +230,11 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // Override to support rearranging the table view.
     func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        actionSet = CDManager.rearrangeActions(view: self, from: fromIndexPath.row, to: to.row)
+        actionSet = CDManager.rearrangeActions(
+            actionSet: actionSet,
+            from: fromIndexPath.row,
+            to: to.row
+        )
     }
     
     // MARK: - Navigation
