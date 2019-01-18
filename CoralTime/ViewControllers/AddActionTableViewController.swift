@@ -25,7 +25,7 @@ class AddActionTableViewController: UITableViewController, UITextFieldDelegate {
         titleEmoji.delegate = self
         actionTitle.delegate = self
         
-        var ranAction = SampleText.getRanAction().split(separator: "#")
+        var ranAction = RandomText.getRanAction()
         titleEmoji.placeholder = String(ranAction[0])
         actionTitle.placeholder = String(ranAction[1])
         

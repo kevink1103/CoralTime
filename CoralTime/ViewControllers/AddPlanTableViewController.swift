@@ -25,7 +25,7 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
         titleEmoji.delegate = self
         planTitle.delegate = self
         
-        let ranPlan = SampleText.getRanPlan().split(separator: "#")
+        let ranPlan = RandomText.getRanPlan()
         titleEmoji.placeholder = String(ranPlan[0])
         planTitle.placeholder = String(ranPlan[1])
         
