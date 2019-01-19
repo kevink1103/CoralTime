@@ -19,12 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Context Update
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            CDManager.masterContext = context
+        }
+        
         // No Nav Bar Shadow
         UINavigationBar.appearance().shadowImage = UIImage()
         // UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         // Firebase
         FirebaseApp.configure()
+        
+        // Sample Load
+        SampleText.loadSampleData()
         
         return true
     }

@@ -26,6 +26,8 @@ class RandomText {
         "🏰": "Go to Disneyland",
         "🎞": "Catch Movie",
         "🗽": "Go Travel",
+        "👨‍🍳": "Cook",
+        "🍳": "Cook",
         ]
     
     static let actionSample: [String: String] = [

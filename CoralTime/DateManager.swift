@@ -25,6 +25,14 @@ func TimeToString(date: Date) -> String {
     return converted
 }
 
+func StringToDate(text: String) -> Date {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+    
+    let converted = dateFormatter.date(from: text)!
+    return converted
+}
+
 func procCalcedTime(target: Date, actionSet: [ActionCD]) -> Date {
     if actionSet.count == 0 {
         return target

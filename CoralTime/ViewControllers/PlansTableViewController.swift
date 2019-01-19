@@ -21,11 +21,6 @@ class PlansTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Context Update
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            CDManager.masterContext = context
-        }
-        
         // Navigation Bar Tint
         self.navigationController?.navigationBar.tintColor = ColorManager.highlightColor
         

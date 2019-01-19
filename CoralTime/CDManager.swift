@@ -164,4 +164,18 @@ class CDManager {
         return resultSet
     }
     
+    static func deleteAll() {
+        for entity in ["PlanCD", "ActionCD"] {
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            
+            do {
+                try self.masterContext!.execute(deleteRequest)
+                try self.masterContext!.save()
+            } catch {
+                print ("There was an error")
+            }
+        }
+    }
+    
 }
