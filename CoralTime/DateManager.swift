@@ -13,24 +13,39 @@ func DateToString(date: Date) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
     
-    let converted = dateFormatter.string(from: date)
-    return converted
+    return dateFormatter.string(from: date)
+}
+
+func DateToPrettyString(date: Date) -> String {
+    // Get Current Year
+    let curDate = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY"
+    let curYear = dateFormatter.string(from: curDate)
+    let comYear = dateFormatter.string(from: date)
+    
+    if curYear == comYear {
+        dateFormatter.dateFormat = "dd MMM"
+    }
+    else {
+        dateFormatter.dateFormat = "dd MMM YYYY"
+    }
+    dateFormatter.dateFormat = "dd MMM YYYY"
+    return dateFormatter.string(from: date).uppercased()
 }
 
 func TimeToString(date: Date) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH:mm"
     
-    let converted = dateFormatter.string(from: date)
-    return converted
+    return dateFormatter.string(from: date)
 }
 
 func StringToDate(text: String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
     
-    let converted = dateFormatter.date(from: text)!
-    return converted
+    return dateFormatter.date(from: text)!
 }
 
 func procCalcedTime(target: Date, actionSet: [ActionCD]) -> Date {

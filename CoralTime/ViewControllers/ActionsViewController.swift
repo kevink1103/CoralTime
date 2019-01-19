@@ -22,8 +22,10 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var navItem: UINavigationItem!
     @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var calcedFrame: UIImageView!
-    @IBOutlet weak var targetFrame: UIImageView!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var bottomFrame: UIImageView!
+    @IBOutlet weak var calcedDate: UILabel!
+    @IBOutlet weak var targetDate: UILabel!
     @IBOutlet weak var calcedTime: UILabel!
     @IBOutlet weak var targetTime: UILabel!
     @IBOutlet weak var coralTimeLabel: UILabel!
@@ -35,7 +37,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         
         // Table View Inset
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: calcedFrame.frame.height + targetFrame.frame.height + 25, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         
         // Navigation Title
         var accTitle = ""
@@ -45,34 +47,38 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         accTitle.append(thisPlan!.title!)
         navItem.title = accTitle
         
-        // Floating Times Frame
+        // Floating Frame
         let screenSize: CGRect = UIScreen.main.bounds
-        calcedFrame.frame = CGRect(x: calcedFrame.frame.minX, y: calcedFrame.frame.minY, width: screenSize.width, height: calcedFrame.frame.maxY - calcedFrame.frame.minY)
-        calcedFrame.frame = calcedFrame.frame
-        targetFrame.frame = CGRect(x: targetFrame.frame.minX, y: targetFrame.frame.minY, width: screenSize.width, height: targetFrame.frame.maxY - targetFrame.frame.minY)
-        targetFrame.frame = targetFrame.frame
-        drawFrame(image: calcedFrame, width_rate: 0.85, height_rate: 0.95, color: ColorManager.highlightColor)
-        drawFrame(image: targetFrame, width_rate: 0.8, height_rate: 0.9, color: ColorManager.darkerColor)
+        let moreWidth = screenSize.width - bottomView.frame.width
+        bottomFrame.frame = CGRect(x: bottomFrame.frame.minX, y: bottomFrame.frame.minY, width: bottomFrame.frame.width + moreWidth, height: bottomFrame.frame.maxY - bottomFrame.frame.minY + 50)
+        drawBottomFrame(image: bottomFrame, color: ColorManager.highlightColor)
         
-        // Time Button Frame
-//        drawButton(image: coralButton, width_rate: 0.85, height_rate: 0.95)
-//        drawButton(image: targetButton, width_rate: 0.8, height_rate: 0.9)
-        
-        // Time Text Color
+        // Text Color
+        calcedDate.textColor = UIColor.white
+        targetDate.textColor = UIColor.white
         calcedTime.textColor = UIColor.white
         targetTime.textColor = UIColor.white
         coralTimeLabel.textColor = UIColor.white
         targetTimeLabel.textColor = UIColor.white
         
-        // Time Text Size depending on screen width
-        if screenSize.width <= 350 {
-            calcedTime.font = UIFont.boldSystemFont(ofSize: 27)
-            targetTime.font = UIFont.boldSystemFont(ofSize: 25)
+        // Text Size
+        var fontSize: CGFloat = 30
+        if screenSize.width < 350 {
+            fontSize = 27
         }
         else {
-            calcedTime.font = UIFont.boldSystemFont(ofSize: 30)
-            targetTime.font = UIFont.boldSystemFont(ofSize: 28)
+            fontSize = 30
         }
+        calcedDate.font = UIFont.boldSystemFont(ofSize: fontSize)
+        targetDate.font = UIFont.boldSystemFont(ofSize: fontSize)
+        calcedTime.font = UIFont.boldSystemFont(ofSize: fontSize)
+        targetTime.font = UIFont.boldSystemFont(ofSize: fontSize)
+        
+        // Button Radius
+        coralButton.layer.cornerRadius = 5
+        coralButton.clipsToBounds = true
+        targetButton.layer.cornerRadius = 5
+        targetButton.clipsToBounds = true
 
         // Long Press
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(sender:)))
@@ -84,9 +90,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
         
         // Update Time Texts
-        let calcedDate = procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet)
-        calcedTime.text = DateToString(date: calcedDate)
-        targetTime.text = DateToString(date: (thisPlan?.target)!)
+        updateBottomFrameText()
         
         // Update Notification
         if thisPlan!.noti == true {
@@ -95,6 +99,14 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         // Debug
         // NotificationManager.listAllNotifications()
+    }
+    
+    func updateBottomFrameText() {
+        let procDateTime = procCalcedTime(target: (self.thisPlan?.target)!, actionSet: self.actionSet)
+        calcedDate.text = DateToPrettyString(date: procDateTime)
+        targetDate.text = DateToPrettyString(date: (self.thisPlan?.target)!)
+        calcedTime.text = TimeToString(date: procDateTime)
+        targetTime.text = TimeToString(date: (self.thisPlan?.target)!)
     }
     
     @IBAction func coralPressed(_ sender: Any) {
@@ -129,31 +141,33 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func drawFrame(image: UIImageView, width_rate: CGFloat, height_rate: CGFloat, color: UIColor) {
+    func drawBottomFrame(image: UIImageView, color: UIColor) {
         image.layer.backgroundColor = UIColor.init(white: 0, alpha: 0).cgColor
         
         // Set the size of rectangle
-        let rectWidth = image.frame.width * width_rate
-        let rectHeight = image.frame.height * height_rate
+        let rectWidth = image.frame.width
+        let rectHeight = image.frame.height - 10
         // Find center of actual frame to set rectangle in middle
         let xf: CGFloat = (image.frame.width - rectWidth) / 2
         let yf: CGFloat = (image.frame.height - rectHeight) / 2
         let rect = CGRect(x: xf, y: yf, width: CGFloat(rectWidth), height: CGFloat(rectHeight))
-        let clipPath: CGPath = UIBezierPath(roundedRect: rect, cornerRadius: rectHeight).cgPath
+        let clipPath: CGPath = UIBezierPath(roundedRect: rect, byRoundingCorners:[.topLeft, .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
         
         let backgroundColor = color.cgColor
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = clipPath
         shapeLayer.fillColor = backgroundColor
-        shapeLayer.cornerRadius = 1.00;
+        
+        shapeLayer.lineWidth = 0.1
+        shapeLayer.strokeColor = UIColor.black.cgColor
         
         // Shadow
-        shapeLayer.shadowColor = UIColor.gray.cgColor
-        shapeLayer.shadowOpacity = 0.85
-        shapeLayer.shadowOffset = CGSize(width: 3, height: 3)
-        shapeLayer.shadowRadius = 8.5
-        shapeLayer.shouldRasterize = false
+//        shapeLayer.shadowColor = UIColor.gray.cgColor
+//        shapeLayer.shadowOpacity = 0.85
+//        shapeLayer.shadowOffset = CGSize(width: 3, height: 3)
+//        shapeLayer.shadowRadius = 8.0
+//        shapeLayer.shouldRasterize = false
         
         image.layer.addSublayer(shapeLayer)
     }
@@ -214,8 +228,7 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
                 index: indexPath.row
             )
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            calcedTime.text = DateToString(date: procCalcedTime(target: (thisPlan?.target)!, actionSet: actionSet))
+            updateBottomFrameText()
         }
         else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

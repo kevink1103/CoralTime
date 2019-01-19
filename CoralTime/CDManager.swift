@@ -47,7 +47,12 @@ class CDManager {
     static func addPlan(emoji: String, title: String, target: Date, order: Int16) {
         let plan = PlanCD(entity: PlanCD.entity(), insertInto: self.masterContext!)
         
-        plan.emoji = emoji
+        if emoji == " " {
+            plan.emoji = ""
+        }
+        else {
+            plan.emoji = emoji
+        }
         plan.title = title
         plan.target = target
         plan.noti = false
@@ -67,7 +72,12 @@ class CDManager {
     static func addAction(plan: PlanCD, emoji: String, title: String, duration: Date, order: Int16) {
         let action = ActionCD(entity: ActionCD.entity(), insertInto: self.masterContext!)
         
-        action.emoji = emoji
+        if emoji == " " {
+            action.emoji = ""
+        }
+        else {
+            action.emoji = emoji
+        }
         action.title = title
         action.duration = duration
         action.order = order

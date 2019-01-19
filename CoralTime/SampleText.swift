@@ -10,15 +10,25 @@ import Foundation
 import UIKit
 
 class SampleText {
-    static let enabled: Bool = true
+    // Should be false for Distribution
+    static let enabled: Bool = false
     
+    /*
+    ["0;👨‍💻;To Work": StringToDate(text: "2019-01-15 07:30")]: [
+        "0;💆‍♂️;Meditation": StringToDate(text: "2019-01-15 00:10"),
+        "1;🚿;Shower": StringToDate(text: "2019-01-15 00:20"),
+        "2;🚽;Can't Tell": StringToDate(text: "2019-01-15 00:20"),
+        "3;👔;Get Dressed": StringToDate(text: "2019-01-15 00:10"),
+        "4;🚌;Commute": StringToDate(text: "2019-01-15 00:30"),
+    ],
+    */
     static let data: [[String:Date]:[String:Date]] = [
-        ["0;👨‍💻;To Work": StringToDate(text: "2019-01-15 07:30")]: [
-            "0;💆‍♂️;Meditation": StringToDate(text: "2019-01-15 00:10"),
-            "1;🚿;Shower": StringToDate(text: "2019-01-15 00:20"),
-            "2;🚽;Can't Tell": StringToDate(text: "2019-01-15 00:20"),
-            "3;👔;Get Dressed": StringToDate(text: "2019-01-15 00:10"),
-            "4;🚌;Commute": StringToDate(text: "2019-01-15 00:30"),
+        ["0; ;To Work": StringToDate(text: "2019-01-15 07:30")]: [
+            "0; ;Meditation": StringToDate(text: "2019-01-15 00:10"),
+            "1; ;Shower": StringToDate(text: "2019-01-15 00:20"),
+            "2; ;Can't Tell": StringToDate(text: "2019-01-15 00:20"),
+            "3; ;Get Dressed": StringToDate(text: "2019-01-15 00:10"),
+            "4; ;Commute": StringToDate(text: "2019-01-15 00:30"),
         ],
         ["1;👨‍🍳;Cook for Dinner": StringToDate(text: "2019-01-15 07:30")]: [
             "0;💆‍♂️;Meditation": StringToDate(text: "2019-01-15 07:30"),
@@ -47,7 +57,6 @@ class SampleText {
         if enabled {
             CDManager.deleteAll()
             for (plan, action) in data {
-                var planSet = CDManager.loadPlans()
                 let tokens = plan.keys.first!.split(separator: ";")
                 let planOrder = Int16(tokens[0])!
                 let planEmoji = String(tokens[1])
@@ -60,18 +69,24 @@ class SampleText {
                     target: planTarget,
                     order: planOrder
                 )
-                planSet = CDManager.loadPlans()
-                let thisPlan = planSet[planSet.count-1]
+                
+                let planSet = CDManager.loadPlans()
+                var thisPlan: PlanCD? = nil
+                for plan in planSet {
+                    if (plan.title == planTitle) {
+                        thisPlan = plan
+                        break
+                    }
+                }
                 
                 for (title, duration) in action {
-                    let actionSet = CDManager.loadActions(plan: thisPlan)
                     let actionTokens = title.split(separator: ";")
                     let actionOrder = Int16(actionTokens[0])!
                     let actionEmoji = String(actionTokens[1])
                     let actionTitle = String(actionTokens[2])
                     
                     CDManager.addAction(
-                        plan: thisPlan,
+                        plan: thisPlan!,
                         emoji: actionEmoji,
                         title: actionTitle,
                         duration: duration,
