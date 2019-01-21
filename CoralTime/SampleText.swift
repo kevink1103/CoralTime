@@ -23,12 +23,12 @@ class SampleText {
     ],
     */
     static let data: [[String:Date]:[String:Date]] = [
-        ["0; ;To Work": StringToDate(text: "2019-01-15 07:30")]: [
-            "0; ;Meditation": StringToDate(text: "2019-01-15 00:10"),
-            "1; ;Shower": StringToDate(text: "2019-01-15 00:20"),
-            "2; ;Can't Tell": StringToDate(text: "2019-01-15 00:20"),
-            "3; ;Get Dressed": StringToDate(text: "2019-01-15 00:10"),
-            "4; ;Commute": StringToDate(text: "2019-01-15 00:30"),
+        ["0;👨‍💻;To Work": StringToDate(text: "2019-01-15 07:30")]: [
+            "0;💆‍♂️;Meditation": StringToDate(text: "2019-01-15 00:10"),
+            "1;🚿;Shower": StringToDate(text: "2019-01-15 00:20"),
+            "2;🚽;Can't Tell": StringToDate(text: "2019-01-15 00:20"),
+            "3;👔;Get Dressed": StringToDate(text: "2019-01-15 00:10"),
+            "4;🚌;Commute": StringToDate(text: "2019-01-15 00:30"),
         ],
         ["1;👨‍🍳;Cook for Dinner": StringToDate(text: "2019-01-15 07:30")]: [
             "0;💆‍♂️;Meditation": StringToDate(text: "2019-01-15 07:30"),
