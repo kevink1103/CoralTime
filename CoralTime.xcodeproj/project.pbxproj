@@ -12,6 +12,8 @@
 		0AC64C1121E60638006D0195 /* SampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1021E60638006D0195 /* SampleText.swift */; };
 		0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1321E6462F006D0195 /* ColorManager.swift */; };
 		0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1521E82C44006D0195 /* CustomCell.swift */; };
+		0AD1A94721F613BD00CB8D1A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1A94621F613BD00CB8D1A /* FirebaseManager.swift */; };
+		0AD1A94B21F616DB00CB8D1A /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1A94A21F616DB00CB8D1A /* Mode.swift */; };
 		0AD8943221E83F480008344B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8943121E83F480008344B /* GoogleService-Info.plist */; };
 		0ADE1E4021F168FE0047DB7D /* RandomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE1E3F21F168FE0047DB7D /* RandomText.swift */; };
 		0AE513EC21DFAA0400AE3A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */; };
@@ -39,6 +41,8 @@
 		0AC64C1221E608BF006D0195 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0AC64C1321E6462F006D0195 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		0AC64C1521E82C44006D0195 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		0AD1A94621F613BD00CB8D1A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		0AD1A94A21F616DB00CB8D1A /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		0AD8943121E83F480008344B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0ADE1E3F21F168FE0047DB7D /* RandomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomText.swift; sourceTree = "<group>"; };
 		0AE513E821DFAA0400AE3A2E /* CoralTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoralTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,8 @@
 			children = (
 				0AC64C1221E608BF006D0195 /* Playground.playground */,
 				0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */,
+				0AD1A94A21F616DB00CB8D1A /* Mode.swift */,
+				0AD1A94621F613BD00CB8D1A /* FirebaseManager.swift */,
 				0AE5140521DFAE3B00AE3A2E /* CDManager.swift */,
 				0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */,
 				0AE5140921DFB18D00AE3A2E /* DateManager.swift */,
@@ -281,6 +287,7 @@
 				0A9BC94D21EC633B00EDB7A8 /* NotificationManager.swift in Sources */,
 				0ADE1E4021F168FE0047DB7D /* RandomText.swift in Sources */,
 				0AE5140621DFAE3B00AE3A2E /* CDManager.swift in Sources */,
+				0AD1A94721F613BD00CB8D1A /* FirebaseManager.swift in Sources */,
 				0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */,
 				0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */,
 				0AE513F421DFAA0400AE3A2E /* CoralTime.xcdatamodeld in Sources */,
@@ -290,6 +297,7 @@
 				0AE5140221DFACF700AE3A2E /* PlansTableViewController.swift in Sources */,
 				0AE5141D21E5F85E00AE3A2E /* AboutViewController.swift in Sources */,
 				0AE5140E21E3217100AE3A2E /* AddActionTableViewController.swift in Sources */,
+				0AD1A94B21F616DB00CB8D1A /* Mode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -61,11 +61,7 @@ class CDManager {
         try? self.masterContext!.save()
 
         // Firebase Analytics
-        Analytics.logEvent("add_plan", parameters: [
-            "emoji": emoji as NSObject,
-            "title": title as NSObject,
-            "target_time": DateToString(date: target) as NSObject
-            ])
+        FirebaseManager.addPlan(emoji: emoji, title: title, target: target)
     }
 
     // Add an Action inside a Plan
@@ -85,12 +81,7 @@ class CDManager {
         try? self.masterContext!.save()
         
         // Firebase Analytics
-        Analytics.logEvent("add_action", parameters: [
-            "plan": (plan.emoji)! + " " + (plan.title)! as NSObject,
-            "emoji": emoji as NSObject,
-            "title": title as NSObject,
-            "duration": TimeToString(date: duration) as NSObject
-            ])
+        FirebaseManager.addAction(plan: plan, emoji: emoji, title: title, duration: duration)
     }
     
     // Update Notification Info in a Plan

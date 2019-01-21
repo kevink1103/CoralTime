@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageUI
-import FirebaseAnalytics
 
 class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
 

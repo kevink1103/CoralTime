@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class SampleText {
-    // Should be false for Distribution
-    static let enabled: Bool = false
+    
+    static let enabled: Bool = Mode.development
     
     /*
     ["0;👨‍💻;To Work": StringToDate(text: "2019-01-15 07:30")]: [

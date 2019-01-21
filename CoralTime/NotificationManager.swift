@@ -109,11 +109,7 @@ class NotificationManager {
         CDManager.notiPlan(plan: plan, flag: true, identifier: request.identifier)
         
         // Firebase Analytics
-        Analytics.logEvent("create_noti", parameters: [
-            "emoji": plan.emoji! as NSObject,
-            "title": plan.title! as NSObject,
-            "target_time": DateToString(date: date) as NSObject
-            ])
+        FirebaseManager.createNoti(emoji: plan.emoji!, title: plan.title!, date: date)
     }
     
     static func cancelNotification(plan: PlanCD) {
