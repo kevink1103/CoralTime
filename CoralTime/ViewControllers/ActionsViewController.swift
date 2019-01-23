@@ -159,14 +159,14 @@ class ActionsViewController: UIViewController, UITableViewDataSource, UITableVie
         shapeLayer.fillColor = backgroundColor
         
         shapeLayer.lineWidth = 0.1
-        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.strokeColor = ColorManager.darkerColor.cgColor
         
         // Shadow
-//        shapeLayer.shadowColor = UIColor.gray.cgColor
-//        shapeLayer.shadowOpacity = 0.85
-//        shapeLayer.shadowOffset = CGSize(width: 3, height: 3)
-//        shapeLayer.shadowRadius = 8.0
-//        shapeLayer.shouldRasterize = false
+        shapeLayer.shadowColor = color.cgColor
+        shapeLayer.shadowOpacity = 0.80
+        shapeLayer.shadowOffset = CGSize(width: 0, height: 3)
+        shapeLayer.shadowRadius = 5.0
+        shapeLayer.shouldRasterize = false
         
         image.layer.addSublayer(shapeLayer)
     }
