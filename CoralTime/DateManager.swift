@@ -17,20 +17,18 @@ func DateToString(date: Date) -> String {
 }
 
 func DateToPrettyString(date: Date) -> String {
-    // Get Current Year
-    let curDate = Date()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "YYYY"
-    let curYear = dateFormatter.string(from: curDate)
-    let comYear = dateFormatter.string(from: date)
-    
-    if curYear == comYear {
-        dateFormatter.dateFormat = "dd MMM"
+    let currentLang: String = Mode.currentLang
+    var format: String = ""
+    if currentLang == "ko" {
+        format = "MM월 dd일"
     }
     else {
-        dateFormatter.dateFormat = "dd MMM YYYY"
+        format = "dd MMM YYYY"
     }
-    dateFormatter.dateFormat = "dd MMM YYYY"
+    
+    // Get Current Year
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = format
     return dateFormatter.string(from: date).uppercased()
 }
 
@@ -41,6 +39,7 @@ func TimeToString(date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
+// Used in SampleText
 func StringToDate(text: String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"

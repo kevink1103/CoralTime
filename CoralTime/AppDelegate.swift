@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         // UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
-        // Sample Load
-        SampleText.loadSampleData()
+        // Sample Text Load
+        SampleText.loadSampleText()
         
         // Firebase
         FirebaseApp.configure()

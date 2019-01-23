@@ -1,0 +1,135 @@
+
+/* Class = "UITextField"; placeholder = "✈️"; ObjectID = "0Hu-MM-teO"; */
+"0Hu-MM-teO.placeholder" = "✈️";
+
+/* Class = "UILabel"; text = "Coral Time"; ObjectID = "1te-Wb-8LO"; */
+"1te-Wb-8LO.text" = "코랄타임";
+
+/* Class = "UINavigationItem"; title = "EDIT ACTION"; ObjectID = "3My-xm-DQx"; */
+"3My-xm-DQx.title" = "활동 수정하기";
+
+/* Class = "UIButton"; normalTitle = "Remove"; ObjectID = "8jI-ld-utL"; */
+"8jI-ld-utL.normalTitle" = "삭제";
+
+/* Class = "UILabel"; text = "Calced Time"; ObjectID = "9Ls-tr-naG"; */
+"9Ls-tr-naG.text" = "계산된 시간";
+
+/* Class = "UIBarButtonItem"; title = "About"; ObjectID = "AS7-DP-wcA"; */
+"AS7-DP-wcA.title" = "대하여";
+
+/* Class = "UILabel"; text = "CORAL TIME"; ObjectID = "Aw7-E8-UeZ"; */
+"Aw7-E8-UeZ.text" = "코랄타임";
+
+/* Class = "UITextField"; placeholder = "Plane to Paris"; ObjectID = "DJ1-bR-G0x"; */
+"DJ1-bR-G0x.placeholder" = "비행기 타고 파리로";
+
+/* Class = "UILabel"; text = "Target Time"; ObjectID = "EIp-GR-LIg"; */
+"EIp-GR-LIg.text" = "타겟타임";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Edy-ew-iQP"; */
+"Edy-ew-iQP.text" = "디테일";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "F9l-J6-eyj"; */
+"F9l-J6-eyj.text" = "제목";
+
+/* Class = "UITableViewSection"; headerTitle = "TARGET TIME"; ObjectID = "FYz-8F-Cbc"; */
+"FYz-8F-Cbc.headerTitle" = "타겟타임";
+
+/* Class = "UITableViewSection"; headerTitle = "DURATION"; ObjectID = "Fua-Ib-cqk"; */
+"Fua-Ib-cqk.headerTitle" = "기간";
+
+/* Class = "UIButton"; normalTitle = "Remove"; ObjectID = "FyL-TU-4SH"; */
+"FyL-TU-4SH.normalTitle" = "삭제";
+
+/* Class = "UILabel"; text = "Target Date"; ObjectID = "HO4-Cw-ulG"; */
+"HO4-Cw-ulG.text" = "타겟타임";
+
+/* Class = "UIBarButtonItem"; title = "Email"; ObjectID = "Ijn-7h-E9i"; */
+"Ijn-7h-E9i.title" = "이메일";
+
+/* Class = "UINavigationItem"; title = "PLANS"; ObjectID = "KUK-pN-Qpz"; */
+"KUK-pN-Qpz.title" = "일정";
+
+/* Class = "UITextField"; placeholder = "✈️"; ObjectID = "LVE-Jg-Pi6"; */
+"LVE-Jg-Pi6.placeholder" = "✈️";
+
+/* Class = "UIButton"; normalTitle = "Website"; ObjectID = "LWi-H7-PMd"; */
+"LWi-H7-PMd.normalTitle" = "웹사이트";
+
+/* Class = "UILabel"; text = "TARGET TIME"; ObjectID = "Ma7-1g-POO"; */
+"Ma7-1g-POO.text" = "타겟타임";
+
+/* Class = "UIButton"; normalTitle = "Feedback"; ObjectID = "MiK-sg-fjk"; */
+"MiK-sg-fjk.normalTitle" = "피드백";
+
+/* Class = "UILabel"; text = "Tips:\nLong Press - Edit Mode\nSwipe Left - Delete"; ObjectID = "NhW-2j-OKZ"; */
+"NhW-2j-OKZ.text" = "팁:\n길게 누르기 - 수정 모드\n왼쪽으로 스와이프 - 삭제";
+
+/* Class = "UITextField"; placeholder = "Plane to Paris"; ObjectID = "Ow2-FJ-u3u"; */
+"Ow2-FJ-u3u.placeholder" = "비행기 타고 파리로";
+
+/* Class = "UITextField"; placeholder = "Plane to Paris"; ObjectID = "PKP-mC-t19"; */
+"PKP-mC-t19.placeholder" = "비행기 타고 파리로";
+
+/* Class = "UITableViewSection"; headerTitle = "TITLE"; ObjectID = "PxX-9O-nEF"; */
+"PxX-9O-nEF.headerTitle" = "제목";
+
+/* Class = "UITableViewSection"; headerTitle = "TITLE"; ObjectID = "XuZ-D0-cI6"; */
+"XuZ-D0-cI6.headerTitle" = "제목";
+
+/* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "bde-TW-MN7"; */
+"bde-TW-MN7.normalTitle" = "개인정보 정책";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ch1-SI-3bX"; */
+"ch1-SI-3bX.text" = "제목";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "hJ8-eD-CRw"; */
+"hJ8-eD-CRw.title" = "대하여";
+
+/* Class = "UITableViewSection"; headerTitle = "DURATION"; ObjectID = "jzd-32-7h9"; */
+"jzd-32-7h9.headerTitle" = "기간";
+
+/* Class = "UINavigationItem"; title = "ACTIONS"; ObjectID = "ksG-oG-7XF"; */
+"ksG-oG-7XF.title" = "활동";
+
+/* Class = "UILabel"; text = "App Development & Design\nKevin Kim"; ObjectID = "mZr-I6-2Am"; */
+"mZr-I6-2Am.text" = "앱 개발 & 디자인\n김성범";
+
+/* Class = "UITableViewSection"; headerTitle = "TARGET TIME"; ObjectID = "n8f-JV-dCP"; */
+"n8f-JV-dCP.headerTitle" = "타겟타임";
+
+/* Class = "UITextField"; placeholder = "✈️"; ObjectID = "oF9-K0-0Jo"; */
+"oF9-K0-0Jo.placeholder" = "✈️";
+
+/* Class = "UILabel"; text = "Calced Date"; ObjectID = "oT6-g8-DwC"; */
+"oT6-g8-DwC.text" = "계산된 시간";
+
+/* Class = "UILabel"; text = "Be there on time, always."; ObjectID = "p0j-cM-EK0"; */
+"p0j-cM-EK0.text" = "제 시간에, 항상.";
+
+/* Class = "UINavigationItem"; title = "ADD ACTION"; ObjectID = "pdG-9j-cl6"; */
+"pdG-9j-cl6.title" = "활동 추가하기";
+
+/* Class = "UITableViewSection"; headerTitle = "TITLE"; ObjectID = "qXf-13-2X1"; */
+"qXf-13-2X1.headerTitle" = "제목";
+
+/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "ren-vh-pNN"; */
+"ren-vh-pNN.headerTitle" = " ";
+
+/* Class = "UITextField"; placeholder = "✈️"; ObjectID = "tBN-aN-bLr"; */
+"tBN-aN-bLr.placeholder" = "✈️";
+
+/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "vUd-bQ-Wkx"; */
+"vUd-bQ-Wkx.headerTitle" = " ";
+
+/* Class = "UINavigationItem"; title = "EDIT PLAN"; ObjectID = "xEv-Uk-Anh"; */
+"xEv-Uk-Anh.title" = "일정 수정하기";
+
+/* Class = "UITextField"; placeholder = "Plane to Paris"; ObjectID = "xNc-xW-G1q"; */
+"xNc-xW-G1q.placeholder" = "비행기 타고 파리로";
+
+/* Class = "UITableViewSection"; headerTitle = "TITLE"; ObjectID = "z67-uf-DXp"; */
+"z67-uf-DXp.headerTitle" = "제목";
+
+/* Class = "UINavigationItem"; title = "ADD PLAN"; ObjectID = "zgY-0e-0rj"; */
+"zgY-0e-0rj.title" = "일정 추가하기";

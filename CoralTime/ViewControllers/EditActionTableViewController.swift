@@ -70,7 +70,7 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var maxLength = 20
         if textField == titleEmoji {
-            maxLength = 1
+            maxLength = 5
         }
         guard let text = textField.text else { return true }
         let newLength = text.count + string.count - range.length

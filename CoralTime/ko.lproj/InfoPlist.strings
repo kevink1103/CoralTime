@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  CoralTime
+
+  Created by Kevin Kim on 23/1/2019.
+  Copyright © 2019 Kevin Kim. All rights reserved.
+*/
+"CFBundleDisplayName" = "코랄타임";
+"CFBundleName" = "코랄타임";

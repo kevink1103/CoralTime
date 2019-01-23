@@ -13,7 +13,6 @@ import Firebase
 
 // Manage Core Data
 class CDManager {
-    
     // Used to store Context
     static var masterContext: NSManagedObjectContext? = nil
     

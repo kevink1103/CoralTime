@@ -15,7 +15,6 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
     }
     
     @IBAction func emailPressed(_ sender: Any) {

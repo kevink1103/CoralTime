@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 
 class FirebaseManager {
-    
     static let enabled: Bool = !Mode.development
     
     static func addPlan(emoji: String, title: String, target: Date) {

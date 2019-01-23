@@ -12,6 +12,7 @@
 		0AC64C1121E60638006D0195 /* SampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1021E60638006D0195 /* SampleText.swift */; };
 		0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1321E6462F006D0195 /* ColorManager.swift */; };
 		0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1521E82C44006D0195 /* CustomCell.swift */; };
+		0AC87AB221F860D300083BBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AC87AB421F860D300083BBC /* InfoPlist.strings */; };
 		0AD1A94721F613BD00CB8D1A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1A94621F613BD00CB8D1A /* FirebaseManager.swift */; };
 		0AD1A94B21F616DB00CB8D1A /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1A94A21F616DB00CB8D1A /* Mode.swift */; };
 		0AD8943221E83F480008344B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8943121E83F480008344B /* GoogleService-Info.plist */; };
@@ -41,6 +42,9 @@
 		0AC64C1221E608BF006D0195 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0AC64C1321E6462F006D0195 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		0AC64C1521E82C44006D0195 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		0AC87AAE21F84E6100083BBC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		0AC87AAF21F84E6100083BBC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0AC87AB321F860D300083BBC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0AD1A94621F613BD00CB8D1A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		0AD1A94A21F616DB00CB8D1A /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		0AD8943121E83F480008344B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				0AE513F721DFAA0500AE3A2E /* LaunchScreen.storyboard */,
 				0AE513F521DFAA0500AE3A2E /* Assets.xcassets */,
 				0AE513FA21DFAA0500AE3A2E /* Info.plist */,
+				0AC87AB421F860D300083BBC /* InfoPlist.strings */,
 				0AD8943121E83F480008344B /* GoogleService-Info.plist */,
 				0AE513F221DFAA0400AE3A2E /* CoralTime.xcdatamodeld */,
 			);
@@ -219,6 +224,7 @@
 				0AD8943221E83F480008344B /* GoogleService-Info.plist in Resources */,
 				0AE513F621DFAA0500AE3A2E /* Assets.xcassets in Resources */,
 				0AE513F121DFAA0400AE3A2E /* Main.storyboard in Resources */,
+				0AC87AB221F860D300083BBC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,10 +310,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0AC87AB421F860D300083BBC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0AC87AB321F860D300083BBC /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		0AE513EF21DFAA0400AE3A2E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0AE513F021DFAA0400AE3A2E /* Base */,
+				0AC87AAE21F84E6100083BBC /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -316,6 +331,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0AE513F821DFAA0500AE3A2E /* Base */,
+				0AC87AAF21F84E6100083BBC /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -327,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -374,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -388,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -429,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

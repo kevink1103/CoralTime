@@ -9,9 +9,10 @@
 import Foundation
 
 class Mode {
+    static let currentLang: String = Locale.preferredLanguages[0]
     // When development: true
     // When deploy: false
     // in FirebaseManager
     // in SampleText
-    static let development = true
+    static let development = false
 }

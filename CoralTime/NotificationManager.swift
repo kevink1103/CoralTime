@@ -12,6 +12,7 @@ import UserNotifications
 import Firebase
 
 class NotificationManager {
+    static let currentLang: String = Mode.currentLang
     
     // Ask for Authorization if it is not set
     static func requestAuthorization(view: PlansTableViewController) {
@@ -26,11 +27,22 @@ class NotificationManager {
             }
         }
         if !authorized {
-            center.requestAuthorization(options: options) { (granted, error) in
-                if !granted {
-                    let alertController = UIAlertController(title: "Notification Unauthorized", message: "Please authorize this app in Settings to receive Coral Time Notification.", preferredStyle: UIAlertController.Style.alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-                    view.present(alertController, animated: true, completion: nil)
+            if currentLang == "ko" {
+                center.requestAuthorization(options: options) { (granted, error) in
+                    if !granted {
+                        let alertController = UIAlertController(title: "알람 권한", message: "설정에서 코랄타임에게 알람 권한을 주세요.", preferredStyle: UIAlertController.Style.alert)
+                        alertController.addAction(UIAlertAction(title: "닫기", style: UIAlertAction.Style.default, handler: nil))
+                        view.present(alertController, animated: true, completion: nil)
+                    }
+                }
+            }
+            else {
+                center.requestAuthorization(options: options) { (granted, error) in
+                    if !granted {
+                        let alertController = UIAlertController(title: "Notification Unauthorized", message: "Please authorize this app in Settings to receive Coral Time Notification.", preferredStyle: UIAlertController.Style.alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+                        view.present(alertController, animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -56,28 +68,54 @@ class NotificationManager {
     
     // Manage Notification depending on the status
     static func manageNotification(view: ActionsViewController) {
-        var status = ""
-        if view.thisPlan?.noti != true {
-            status = "Off"
+        if currentLang == "ko" {
+            var status = ""
+            if view.thisPlan?.noti != true {
+                status = "꺼짐"
+            }
+            else {
+                status = "켜짐"
+            }
+            let alertController = UIAlertController(title: "코랄타임 알림", message:
+                "상태: \(status)", preferredStyle: UIAlertController.Style.alert)
+            
+            if view.thisPlan?.noti != true {
+                let createAction = UIAlertAction(title: "켜기", style: UIAlertAction.Style.default, handler: { _ in createNotification(plan: (view.thisPlan)!) })
+                alertController.addAction(createAction)
+            }
+            else {
+                let cancelAction = UIAlertAction(title: "끄기", style: UIAlertAction.Style.default, handler: { _ in cancelNotification(plan: (view.thisPlan)!) })
+                alertController.addAction(cancelAction)
+            }
+            
+            alertController.addAction(UIAlertAction(title: "닫기", style: UIAlertAction.Style.default,handler: nil))
+            
+            view.present(alertController, animated: true, completion: nil)
         }
         else {
-            status = "On"
-        }
-        let alertController = UIAlertController(title: "Coral Time Notification", message:
-            "Status: \(status)", preferredStyle: UIAlertController.Style.alert)
-        
-        if view.thisPlan?.noti != true {
-            let createAction = UIAlertAction(title: "Turn On", style: UIAlertAction.Style.default, handler: { _ in createNotification(plan: (view.thisPlan)!) })
-            alertController.addAction(createAction)
-        }
-        else {
-            let cancelAction = UIAlertAction(title: "Turn Off", style: UIAlertAction.Style.default, handler: { _ in cancelNotification(plan: (view.thisPlan)!) })
-            alertController.addAction(cancelAction)
-        }
+            var status = ""
+            if view.thisPlan?.noti != true {
+                status = "Off"
+            }
+            else {
+                status = "On"
+            }
+            let alertController = UIAlertController(title: "Coral Time Notification", message:
+                "Status: \(status)", preferredStyle: UIAlertController.Style.alert)
+            
+            if view.thisPlan?.noti != true {
+                let createAction = UIAlertAction(title: "Turn On", style: UIAlertAction.Style.default, handler: { _ in createNotification(plan: (view.thisPlan)!) })
+                alertController.addAction(createAction)
+            }
+            else {
+                let cancelAction = UIAlertAction(title: "Turn Off", style: UIAlertAction.Style.default, handler: { _ in cancelNotification(plan: (view.thisPlan)!) })
+                alertController.addAction(cancelAction)
+            }
 
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
-        
-        view.present(alertController, animated: true, completion: nil)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
+            
+            view.present(alertController, animated: true, completion: nil)
+        }
     }
     
     static func createNotification(plan: PlanCD) {
