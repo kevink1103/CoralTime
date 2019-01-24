@@ -25,7 +25,6 @@ class AddActionTableViewController: UITableViewController, UITextFieldDelegate {
         actionTitle.delegate = self
         
         var ranAction = RandomText.getRanAction()
-        titleEmoji.setTitle(String(ranAction[0]), for: .normal)
         actionTitle.placeholder = String(ranAction[1])
         
         // Uncomment the following line to preserve selection between presentations

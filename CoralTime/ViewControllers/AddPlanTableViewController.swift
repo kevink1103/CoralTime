@@ -25,7 +25,6 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
         planTitle.delegate = self
         
         let ranPlan = RandomText.getRanPlan()
-        titleEmoji.setTitle(String(ranPlan[0]), for: .normal)
         planTitle.placeholder = String(ranPlan[1])
         
         // Uncomment the following line to preserve selection between presentations

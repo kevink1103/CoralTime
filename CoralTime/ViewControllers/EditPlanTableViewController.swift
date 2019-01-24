@@ -29,7 +29,9 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
         
         // Load This Action
         thisPlan = previousVC.planSet[planIndex]
-        titleEmoji.setTitle(thisPlan!.emoji, for: .normal)
+        if thisPlan!.emoji!.count > 0 {
+            titleEmoji.setTitle(thisPlan!.emoji, for: .normal)
+        }
         planTitle.text = thisPlan!.title
         datePicker.setDate((thisPlan?.target)!, animated: true)
         

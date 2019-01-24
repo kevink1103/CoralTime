@@ -26,10 +26,16 @@ class EmojiSearchViewController: UIViewController, UISearchResultsUpdating, UICo
         // Search Bar
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
+        search.searchBar.tintColor = ColorManager.highlightColor
         navigationItem.searchController = search
-        navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController?.dimsBackgroundDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    @IBAction func trashPressed(_ sender: Any) {
+        updateLastViewController(title: "➕", emojiMode: false)
+        navigationController?.popViewController(animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,31 +50,35 @@ class EmojiSearchViewController: UIViewController, UISearchResultsUpdating, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        updateLastViewController(title: emojiSet[indexPath.row], emojiMode: true)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func updateLastViewController(title: String, emojiMode: Bool) {
         // Get the Last View Controller from Navigation Stack
         var navigationArray = self.navigationController?.viewControllers
         let lastViewController = navigationArray![(navigationArray!.count)-2]
         
         if lastViewController is AddPlanTableViewController {
             let lastViewController: AddPlanTableViewController = lastViewController as! AddPlanTableViewController
-            lastViewController.titleEmoji.setTitle(emojiSet[indexPath.row], for: .normal)
-            lastViewController.emojiChanged = true
+            lastViewController.titleEmoji.setTitle(title, for: .normal)
+            lastViewController.emojiChanged = emojiMode
         }
         else if lastViewController is EditPlanTableViewController {
             let lastViewController: EditPlanTableViewController = lastViewController as! EditPlanTableViewController
-            lastViewController.titleEmoji.setTitle(emojiSet[indexPath.row], for: .normal)
-            lastViewController.emojiChanged = true
+            lastViewController.titleEmoji.setTitle(title, for: .normal)
+            lastViewController.emojiChanged = emojiMode
         }
         else if lastViewController is AddActionTableViewController {
             let lastViewController: AddActionTableViewController = lastViewController as! AddActionTableViewController
-            lastViewController.titleEmoji.setTitle(emojiSet[indexPath.row], for: .normal)
-            lastViewController.emojiChanged = true
+            lastViewController.titleEmoji.setTitle(title, for: .normal)
+            lastViewController.emojiChanged = emojiMode
         }
         else if lastViewController is EditActionTableViewController {
             let lastViewController: EditActionTableViewController = lastViewController as! EditActionTableViewController
-            lastViewController.titleEmoji.setTitle(emojiSet[indexPath.row], for: .normal)
-            lastViewController.emojiChanged = true
+            lastViewController.titleEmoji.setTitle(title, for: .normal)
+            lastViewController.emojiChanged = emojiMode
         }
-        navigationController?.popViewController(animated: true)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -79,12 +89,14 @@ class EmojiSearchViewController: UIViewController, UISearchResultsUpdating, UICo
     
     
     /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+    }
+    */
+    
 }

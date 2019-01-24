@@ -29,7 +29,9 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
         
         // Load This Action
         thisAction = previousVC.actionSet[actionIndex]
-        titleEmoji.setTitle(thisAction!.emoji, for: .normal)
+        if thisAction!.emoji!.count > 0 {
+            titleEmoji.setTitle(thisAction!.emoji, for: .normal)
+        }
         actionTitle.text = thisAction!.title
         datePicker.setDate((thisAction?.duration)!, animated: true)
         

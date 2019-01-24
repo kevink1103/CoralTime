@@ -335,7 +335,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="lAV-J3-Mop"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="E"/>
+                                                    <state key="normal" title="➕"/>
                                                     <connections>
                                                         <action selector="emojiPressed:" destination="tl7-zn-cAE" eventType="touchUpInside" id="MjL-82-fl2"/>
                                                     </connections>
@@ -459,7 +459,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="Vo0-FG-viK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="E"/>
+                                                    <state key="normal" title="➕"/>
                                                     <connections>
                                                         <action selector="emojiPressed:" destination="5EB-aC-VcO" eventType="touchUpInside" id="vhe-03-2Fg"/>
                                                     </connections>
@@ -598,7 +598,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hnv-fe-z2F"/>
                     </view>
-                    <navigationItem key="navigationItem" title="EMOJI" id="TVj-GH-J09"/>
+                    <navigationItem key="navigationItem" title="EMOJI" id="TVj-GH-J09">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Qhh-ul-c4R">
+                            <connections>
+                                <action selector="trashPressed:" destination="13a-oS-hwn" id="5S5-b9-nbV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ybi-E9-dT0" id="0Je-W6-wOj"/>
                     </connections>
@@ -632,7 +638,7 @@
                                                         <constraint firstAttribute="width" constant="52" id="iib-mk-65v"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="E"/>
+                                                    <state key="normal" title="➕"/>
                                                     <connections>
                                                         <action selector="emojiPressed:" destination="tFO-iZ-p1Q" eventType="touchUpInside" id="HGb-YY-bZg"/>
                                                     </connections>
@@ -767,7 +773,7 @@
                                                         <constraint firstAttribute="width" constant="52" id="d0N-HJ-Y5k"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="E"/>
+                                                    <state key="normal" title="➕"/>
                                                     <connections>
                                                         <action selector="emojiPressed:" destination="7Og-x2-fkr" eventType="touchUpInside" id="38z-TR-Tay"/>
                                                     </connections>
@@ -1002,6 +1008,6 @@ Swipe Left - Delete</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kPx-TZ-0an"/>
-        <segue reference="NVs-ig-1Vt"/>
+        <segue reference="zX9-qN-Hby"/>
     </inferredMetricsTieBreakers>
 </document>
