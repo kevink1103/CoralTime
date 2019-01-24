@@ -14,5 +14,5 @@ class Mode {
     // When deploy: false
     // in FirebaseManager
     // in SampleText
-    static let development = true
+    static let development = false
 }
