@@ -9,19 +9,27 @@
 import UIKit
 import emojidataios
 
-class EmojiSearchViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class EmojiSearchViewController: UIViewController, UISearchResultsUpdating, UICollectionViewDelegate, UICollectionViewDataSource {
     
     // Global Variables
     var emojiSet: [String] = EmojiManager.allEmojis
     
     // UI Part
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Collection View Inset
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
+        
+        // Search Bar
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
+        navigationItem.searchController?.dimsBackgroundDuringPresentation = false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,15 +71,12 @@ class EmojiSearchViewController: UIViewController, UISearchBarDelegate, UICollec
         navigationController?.popViewController(animated: true)
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        emojiSet = EmojiManager.searchEmoji(searchText: searchText)
+    func updateSearchResults(for searchController: UISearchController) {
+        emojiSet = EmojiManager.searchEmoji(searchText: searchController.searchBar.text!)
         collectionView.reloadData()
     }
     
-    // Search Key
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.endEditing(true)
-    }
+    
     
     /*
      // MARK: - Navigation

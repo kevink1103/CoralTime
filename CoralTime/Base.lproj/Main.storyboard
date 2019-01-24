@@ -546,16 +546,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Search Emoji" translatesAutoresizingMaskIntoConstraints="NO" id="53q-fP-v6J">
-                                <rect key="frame" x="0.0" y="116" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="13a-oS-hwn" id="Inz-3N-cLZ"/>
-                                </connections>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-E9-dT0">
-                                <rect key="frame" x="0.0" y="172" width="375" height="495"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="safeArea" id="Hdg-7D-lef"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QLu-Fj-HVp">
                                     <size key="itemSize" width="45" height="45"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -597,20 +591,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ybi-E9-dT0" firstAttribute="bottom" secondItem="Hnv-fe-z2F" secondAttribute="bottom" id="JAL-fI-aec"/>
-                            <constraint firstItem="ybi-E9-dT0" firstAttribute="leading" secondItem="53q-fP-v6J" secondAttribute="leading" id="Jo6-Az-26F"/>
-                            <constraint firstItem="53q-fP-v6J" firstAttribute="leading" secondItem="wO7-AN-Tk3" secondAttribute="leading" id="QrN-nr-GTt"/>
-                            <constraint firstAttribute="trailing" secondItem="53q-fP-v6J" secondAttribute="trailing" id="R31-H1-YqL"/>
-                            <constraint firstItem="ybi-E9-dT0" firstAttribute="top" secondItem="53q-fP-v6J" secondAttribute="bottom" id="V1y-UU-iOQ"/>
-                            <constraint firstItem="ybi-E9-dT0" firstAttribute="trailing" secondItem="53q-fP-v6J" secondAttribute="trailing" id="hol-L6-wl9"/>
-                            <constraint firstItem="53q-fP-v6J" firstAttribute="top" secondItem="Hnv-fe-z2F" secondAttribute="top" id="ynH-6r-PKt"/>
+                            <constraint firstItem="ybi-E9-dT0" firstAttribute="bottom" secondItem="wO7-AN-Tk3" secondAttribute="bottom" id="GUU-TS-cUG"/>
+                            <constraint firstItem="ybi-E9-dT0" firstAttribute="top" secondItem="Hnv-fe-z2F" secondAttribute="top" id="aF0-Eq-9HE"/>
+                            <constraint firstItem="ybi-E9-dT0" firstAttribute="leading" secondItem="wO7-AN-Tk3" secondAttribute="leading" id="nqo-v7-W3R"/>
+                            <constraint firstAttribute="trailing" secondItem="ybi-E9-dT0" secondAttribute="trailing" id="rDx-G6-Ybs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hnv-fe-z2F"/>
                     </view>
                     <navigationItem key="navigationItem" title="EMOJI" id="TVj-GH-J09"/>
                     <connections>
                         <outlet property="collectionView" destination="ybi-E9-dT0" id="0Je-W6-wOj"/>
-                        <outlet property="searchBar" destination="53q-fP-v6J" id="kMM-h6-qMu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsl-dx-Qur" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1012,6 +1002,6 @@ Swipe Left - Delete</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kPx-TZ-0an"/>
-        <segue reference="zX9-qN-Hby"/>
+        <segue reference="NVs-ig-1Vt"/>
     </inferredMetricsTieBreakers>
 </document>
