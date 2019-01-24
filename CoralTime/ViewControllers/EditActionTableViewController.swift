@@ -14,9 +14,10 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     var previousVC = ActionsViewController()
     var actionIndex = 0
     var thisAction: ActionCD? = nil
+    var emojiChanged: Bool = false
     
     // UI Part
-    @IBOutlet weak var titleEmoji: UITextField!
+    @IBOutlet weak var titleEmoji: UIButton!
     @IBOutlet weak var actionTitle: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var removeButton: UIButton!
@@ -24,12 +25,11 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleEmoji.delegate = self
         actionTitle.delegate = self
         
         // Load This Action
         thisAction = previousVC.actionSet[actionIndex]
-        titleEmoji.text = thisAction!.emoji
+        titleEmoji.setTitle(thisAction!.emoji, for: .normal)
         actionTitle.text = thisAction!.title
         datePicker.setDate((thisAction?.duration)!, animated: true)
         
@@ -40,12 +40,20 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @IBAction func emojiPressed(_ sender: Any) {
+        performSegue(withIdentifier: "editActionToEmojiSegue", sender: self)
+    }
+    
     @IBAction func donePressed(_ sender: Any) {
         let titleText = actionTitle.text
         if titleText!.count > 0 {
+            var emoji = titleEmoji.titleLabel!.text!
+            if !emojiChanged {
+                emoji = ""
+            }
             CDManager.updateAction(
                 action: thisAction!,
-                emoji: titleEmoji.text!,
+                emoji: emoji,
                 title: actionTitle.text!,
                 duration: getDatePicker()
             )
@@ -68,10 +76,7 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     
     // Limit titleEmoji Length
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var maxLength = 20
-        if textField == titleEmoji {
-            maxLength = 5
-        }
+        let maxLength = 20
         guard let text = textField.text else { return true }
         let newLength = text.count + string.count - range.length
         return newLength <= maxLength // replace 1 for your max length value

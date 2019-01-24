@@ -12,20 +12,20 @@ class AddActionTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Global Variables
     var previousVC = ActionsViewController()
+    var emojiChanged: Bool = false
     
     // UI Part
-    @IBOutlet weak var titleEmoji: UITextField!
+    @IBOutlet weak var titleEmoji: UIButton!
     @IBOutlet weak var actionTitle: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleEmoji.delegate = self
         actionTitle.delegate = self
         
         var ranAction = RandomText.getRanAction()
-        titleEmoji.placeholder = String(ranAction[0])
+        titleEmoji.setTitle(String(ranAction[0]), for: .normal)
         actionTitle.placeholder = String(ranAction[1])
         
         // Uncomment the following line to preserve selection between presentations
@@ -35,12 +35,20 @@ class AddActionTableViewController: UITableViewController, UITextFieldDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @IBAction func emojiPressed(_ sender: Any) {
+        performSegue(withIdentifier: "addActionToEmojiSegue", sender: self)
+    }
+    
     @IBAction func donePressed(_ sender: Any) {
         let titleText = actionTitle.text
         if titleText!.count > 0 {
+            var emoji = titleEmoji.titleLabel!.text!
+            if !emojiChanged {
+                emoji = ""
+            }
             CDManager.addAction(
                 plan: previousVC.thisPlan!,
-                emoji: titleEmoji.text!,
+                emoji: emoji,
                 title: actionTitle.text!,
                 duration: getDatePicker(),
                 order: Int16(previousVC.actionSet.count)
@@ -56,10 +64,7 @@ class AddActionTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Limit titleEmoji Length
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var maxLength = 20
-        if textField == titleEmoji {
-            maxLength = 5
-        }
+        let maxLength = 20
         guard let text = textField.text else { return true }
         let newLength = text.count + string.count - range.length
         return newLength <= maxLength // replace 1 for your max length value

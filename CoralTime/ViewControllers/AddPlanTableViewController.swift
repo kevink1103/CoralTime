@@ -12,20 +12,20 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Global Variables
     var previousVC = PlansTableViewController()
+    var emojiChanged: Bool = false
     
     // UI Part
-    @IBOutlet weak var titleEmoji: UITextField!
+    @IBOutlet weak var titleEmoji: UIButton!
     @IBOutlet weak var planTitle: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleEmoji.delegate = self
         planTitle.delegate = self
         
         let ranPlan = RandomText.getRanPlan()
-        titleEmoji.placeholder = String(ranPlan[0])
+        titleEmoji.setTitle(String(ranPlan[0]), for: .normal)
         planTitle.placeholder = String(ranPlan[1])
         
         // Uncomment the following line to preserve selection between presentations
@@ -35,11 +35,19 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @IBAction func emojiPressed(_ sender: Any) {
+        performSegue(withIdentifier: "addPlanToEmojiSegue", sender: self)
+    }
+    
     @IBAction func donePressed(_ sender: Any) {
         let titleText = planTitle.text
         if titleText!.count > 0 {
+            var emoji = titleEmoji.titleLabel!.text!
+            if !emojiChanged {
+                emoji = ""
+            }
             CDManager.addPlan(
-                emoji: titleEmoji.text!,
+                emoji: emoji,
                 title: planTitle.text!,
                 target: getDatePicker(),
                 order: Int16(previousVC.planSet.count)
@@ -55,10 +63,7 @@ class AddPlanTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Limit titleEmoji Length
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var maxLength = 20
-        if textField == titleEmoji {
-            maxLength = 5
-        }
+        let maxLength = 20
         guard let text = textField.text else { return true }
         let newLength = text.count + string.count - range.length
         return newLength <= maxLength // replace 1 for your max length value

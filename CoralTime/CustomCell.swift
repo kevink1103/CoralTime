@@ -20,3 +20,7 @@ class ActionCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
 }
+
+class EmojiCell: UICollectionViewCell {
+    @IBOutlet weak var emojiLabel: UILabel!
+}

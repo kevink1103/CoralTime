@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A2FFD5321F08BFE007C2FBB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */; };
 		0A9BC94D21EC633B00EDB7A8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */; };
+		0AA6CF4121F99232001F8632 /* EmojiSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6CF4021F99232001F8632 /* EmojiSearchViewController.swift */; };
+		0AA6CF4321F99B25001F8632 /* EmojiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6CF4221F99B25001F8632 /* EmojiManager.swift */; };
 		0AC64C1121E60638006D0195 /* SampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1021E60638006D0195 /* SampleText.swift */; };
 		0AC64C1421E6462F006D0195 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1321E6462F006D0195 /* ColorManager.swift */; };
 		0AC64C1621E82C44006D0195 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC64C1521E82C44006D0195 /* CustomCell.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		0AA6CF4021F99232001F8632 /* EmojiSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSearchViewController.swift; sourceTree = "<group>"; };
+		0AA6CF4221F99B25001F8632 /* EmojiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiManager.swift; sourceTree = "<group>"; };
 		0AC64C1021E60638006D0195 /* SampleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleText.swift; sourceTree = "<group>"; };
 		0AC64C1221E608BF006D0195 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0AC64C1321E6462F006D0195 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				0AD1A94621F613BD00CB8D1A /* FirebaseManager.swift */,
 				0AE5140921DFB18D00AE3A2E /* DateManager.swift */,
 				0AC64C1321E6462F006D0195 /* ColorManager.swift */,
+				0AA6CF4221F99B25001F8632 /* EmojiManager.swift */,
 				0ADE1E3F21F168FE0047DB7D /* RandomText.swift */,
 				0AC64C1021E60638006D0195 /* SampleText.swift */,
 				0AC64C1521E82C44006D0195 /* CustomCell.swift */,
@@ -138,6 +143,7 @@
 				0AE5140B21DFB86600AE3A2E /* ActionsViewController.swift */,
 				0AE5140D21E3217100AE3A2E /* AddActionTableViewController.swift */,
 				0AE5140F21E3476100AE3A2E /* EditActionTableViewController.swift */,
+				0AA6CF4021F99232001F8632 /* EmojiSearchViewController.swift */,
 				0AE5141C21E5F85E00AE3A2E /* AboutViewController.swift */,
 			);
 			path = ViewControllers;
@@ -241,6 +247,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoralTime/Pods-CoralTime-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/emojidataios/emojidataios.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -248,6 +255,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/emojidataios.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +294,7 @@
 			files = (
 				0AE5141221E3B61700AE3A2E /* EditPlanTableViewController.swift in Sources */,
 				0AE5140C21DFB86600AE3A2E /* ActionsViewController.swift in Sources */,
+				0AA6CF4121F99232001F8632 /* EmojiSearchViewController.swift in Sources */,
 				0AE5141621E5E30F00AE3A2E /* HexToUIColor.swift in Sources */,
 				0AE5140421DFADE400AE3A2E /* AddPlanTableViewController.swift in Sources */,
 				0AC64C1121E60638006D0195 /* SampleText.swift in Sources */,
@@ -301,6 +310,7 @@
 				0AE5141021E3476100AE3A2E /* EditActionTableViewController.swift in Sources */,
 				0A2FFD5321F08BFE007C2FBB /* CustomButton.swift in Sources */,
 				0AE5140221DFACF700AE3A2E /* PlansTableViewController.swift in Sources */,
+				0AA6CF4321F99B25001F8632 /* EmojiManager.swift in Sources */,
 				0AE5141D21E5F85E00AE3A2E /* AboutViewController.swift in Sources */,
 				0AE5140E21E3217100AE3A2E /* AddActionTableViewController.swift in Sources */,
 				0AD1A94B21F616DB00CB8D1A /* Mode.swift in Sources */,

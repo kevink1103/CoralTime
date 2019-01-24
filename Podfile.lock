@@ -1,4 +1,5 @@
 PODS:
+  - emojidataios (0.2.0)
   - Firebase/Core (5.15.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.4.0)
@@ -50,10 +51,12 @@ PODS:
   - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
+  - emojidataios
   - Firebase/Core
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - emojidataios
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -63,6 +66,7 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  emojidataios: b6f24d265146524fa9d5adf787d73ae84dbd7725
   Firebase: 8bb9268bff82374f2cbaaabb143e725743c316ae
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
   FirebaseCore: 35747502d9e8c6ee217385ad04446c7c2aaf9c5c
@@ -71,6 +75,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: f1c57f3cff2c1eccbeaf66468f55b3961c0b50c4
+PODFILE CHECKSUM: 724c94a83126b5aae582daf429d44e7f3472d203
 
 COCOAPODS: 1.5.3

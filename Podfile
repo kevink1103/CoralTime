@@ -6,5 +6,6 @@ target 'CoralTime' do
   use_frameworks!
 
   # Pods for CoralTime
+  pod 'emojidataios'
   pod 'Firebase/Core'
 end

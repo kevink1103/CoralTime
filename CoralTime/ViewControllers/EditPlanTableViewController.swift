@@ -14,9 +14,10 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
     var previousVC = PlansTableViewController()
     var planIndex = 0
     var thisPlan: PlanCD? = nil
+    var emojiChanged: Bool = false
     
     // UI Part
-    @IBOutlet weak var titleEmoji: UITextField!
+    @IBOutlet weak var titleEmoji: UIButton!
     @IBOutlet weak var planTitle: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var removeButton: UIButton!
@@ -24,12 +25,11 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleEmoji.delegate = self
         planTitle.delegate = self
         
         // Load This Action
         thisPlan = previousVC.planSet[planIndex]
-        titleEmoji.text = thisPlan!.emoji
+        titleEmoji.setTitle(thisPlan!.emoji, for: .normal)
         planTitle.text = thisPlan!.title
         datePicker.setDate((thisPlan?.target)!, animated: true)
         
@@ -40,12 +40,20 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @IBAction func emojiPressed(_ sender: Any) {
+        performSegue(withIdentifier: "editPlanToEmojiSegue", sender: self)
+    }
+    
     @IBAction func donePressed(_ sender: Any) {
         let titleText = planTitle.text
         if titleText!.count > 0 {
+            var emoji = titleEmoji.titleLabel!.text!
+            if !emojiChanged {
+                emoji = ""
+            }
             CDManager.updatePlan(
                 plan: thisPlan!,
-                emoji: titleEmoji.text!,
+                emoji: emoji,
                 title: planTitle.text!,
                 target: getDatePicker()
             )
@@ -76,10 +84,7 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
     
     // Limit titleEmoji Length
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var maxLength = 20
-        if textField == titleEmoji {
-            maxLength = 5
-        }
+        let maxLength = 20
         guard let text = textField.text else { return true }
         let newLength = text.count + string.count - range.length
         return newLength <= maxLength // replace 1 for your max length value
