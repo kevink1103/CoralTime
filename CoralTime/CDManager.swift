@@ -6,8 +6,6 @@
 //  Copyright © 2019 Kevin Kim. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import CoreData
 import Firebase
 
@@ -20,13 +18,12 @@ class CDManager {
     static func loadPlans() -> [PlanCD] {
         var planSet: [PlanCD] = []
         
-        if let plansCD = try? self.masterContext!.fetch(PlanCD.fetchRequest()) as? [PlanCD] {
+        if let plansCD = try? masterContext?.fetch(PlanCD.fetchRequest()) as? [PlanCD] {
             if let plans = plansCD {
-                planSet = plans
+                planSet = plans.sorted { (left, right) -> Bool in
+                    left.order < right.order
+                }
             }
-        }
-        planSet = planSet.sorted { (left, right) -> Bool in
-            left.order < right.order
         }
         return planSet
     }
@@ -35,16 +32,17 @@ class CDManager {
     static func loadActions(plan: PlanCD) -> [ActionCD] {
         var actionSet: [ActionCD] = []
         
-        actionSet = plan.actionR?.allObjects as! [ActionCD]
-        actionSet = actionSet.sorted { (left, right) -> Bool in
-            left.order < right.order
+        if let actionsCD = plan.actionR?.allObjects as? [ActionCD] {
+            actionSet = actionsCD.sorted { (left, right) -> Bool in
+                left.order < right.order
+            }
         }
         return actionSet
     }
 
     // Add a Plan
     static func addPlan(emoji: String, title: String, target: Date, order: Int16) {
-        let plan = PlanCD(entity: PlanCD.entity(), insertInto: self.masterContext!)
+        let plan = PlanCD(entity: PlanCD.entity(), insertInto: masterContext!)
         
         if emoji == " " {
             plan.emoji = ""
@@ -57,7 +55,12 @@ class CDManager {
         plan.noti = false
         plan.noti_id = ""
         plan.order = order
-        try? self.masterContext!.save()
+        do {
+            try masterContext?.save()
+        } catch {
+            masterContext?.delete(plan)
+            print ("There was an error")
+        }
 
         // Firebase Analytics
         FirebaseManager.addPlan(emoji: emoji, title: title, target: target)
@@ -65,7 +68,7 @@ class CDManager {
 
     // Add an Action inside a Plan
     static func addAction(plan: PlanCD, emoji: String, title: String, duration: Date, order: Int16) {
-        let action = ActionCD(entity: ActionCD.entity(), insertInto: self.masterContext!)
+        let action = ActionCD(entity: ActionCD.entity(), insertInto: masterContext!)
         
         if emoji == " " {
             action.emoji = ""
@@ -77,7 +80,12 @@ class CDManager {
         action.duration = duration
         action.order = order
         plan.addToActionR(action)
-        try? self.masterContext!.save()
+        do {
+            try masterContext?.save()
+        } catch {
+            masterContext?.delete(action)
+            print ("There was an error")
+        }
         
         // Firebase Analytics
         FirebaseManager.addAction(plan: plan, emoji: emoji, title: title, duration: duration)
@@ -87,7 +95,11 @@ class CDManager {
     static func notiPlan(plan: PlanCD, flag: Bool, identifier: String) {
         plan.noti = flag
         plan.noti_id = identifier
-        try? self.masterContext!.save()
+        do {
+            try masterContext?.save()
+        } catch {
+            print ("There was an error")
+        }
     }
     
     // Update a Plan
@@ -95,7 +107,11 @@ class CDManager {
         plan.emoji = emoji
         plan.title = title
         plan.target = target
-        try? self.masterContext!.save()
+        do {
+            try masterContext?.save()
+        } catch {
+            print ("There was an error")
+        }
     }
     
     // Update an Action inside a Plan
@@ -103,17 +119,26 @@ class CDManager {
         action.emoji = emoji
         action.title = title
         action.duration = duration
-        try? self.masterContext!.save()
+        do {
+            try masterContext?.save()
+        } catch {
+            print ("There was an error")
+        }
     }
     
     // Remove a Plan
     static func removePlan(planSet: [PlanCD], index: Int) -> [PlanCD] {
         var resultSet: [PlanCD] = planSet
         
-        self.masterContext!.delete(resultSet[index])
-        try? self.masterContext!.save()
+        masterContext?.delete(resultSet[index])
+        do {
+            try masterContext?.save()
+        } catch {
+            print ("There was an error")
+        }
         
         resultSet.remove(at: index)
+        
         for (idx, plan) in resultSet.enumerated() {
             plan.order = Int16(idx)
         }
@@ -124,10 +149,15 @@ class CDManager {
     static func removeAction(actionSet: [ActionCD], index: Int) -> [ActionCD] {
         var resultSet: [ActionCD] = actionSet
         
-        self.masterContext!.delete(resultSet[index])
-        try? self.masterContext!.save()
+        masterContext?.delete(resultSet[index])
+        do {
+            try masterContext?.save()
+        } catch {
+            print ("There was an error")
+        }
         
         resultSet.remove(at: index)
+        
         for (idx, action) in resultSet.enumerated() {
             action.order = Int16(idx)
         }
@@ -144,7 +174,11 @@ class CDManager {
         
         for (idx, plan) in resultSet.enumerated() {
             plan.order = Int16(idx)
-            try? self.masterContext!.save()
+            do {
+                try masterContext?.save()
+            } catch {
+                print ("There was an error")
+            }
         }
         return resultSet
     }
@@ -159,7 +193,11 @@ class CDManager {
         
         for (idx, action) in resultSet.enumerated() {
             action.order = Int16(idx)
-            try? self.masterContext!.save()
+            do {
+                try masterContext?.save()
+            } catch {
+                print ("There was an error")
+            }
         }
         return resultSet
     }
@@ -170,8 +208,8 @@ class CDManager {
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
             
             do {
-                try self.masterContext!.execute(deleteRequest)
-                try self.masterContext!.save()
+                try masterContext?.execute(deleteRequest)
+                try masterContext?.save()
             } catch {
                 print ("There was an error")
             }

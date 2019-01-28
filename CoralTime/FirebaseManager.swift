@@ -12,6 +12,12 @@ import Firebase
 class FirebaseManager {
     static let enabled: Bool = !Mode.development
     
+    static func start() {
+        if enabled {
+            FirebaseApp.configure()
+        }
+    }
+    
     static func addPlan(emoji: String, title: String, target: Date) {
         if enabled {
             Analytics.logEvent("add_plan", parameters: [

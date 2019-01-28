@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sample Text Load
         SampleText.loadSampleText()
         
-        // Firebase
-        FirebaseApp.configure()
+        // Firebase Start
+        FirebaseManager.start()
         
         return true
     }
