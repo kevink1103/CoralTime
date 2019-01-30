@@ -14,7 +14,6 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
     var previousVC = PlansTableViewController()
     var planIndex = 0
     var thisPlan: PlanCD? = nil
-    var emojiChanged: Bool = false
     
     // UI Part
     @IBOutlet weak var titleEmoji: UIButton!
@@ -49,10 +48,7 @@ class EditPlanTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func donePressed(_ sender: Any) {
         let titleText = planTitle.text
         if titleText!.count > 0 {
-            var emoji = titleEmoji.titleLabel!.text!
-            if !emojiChanged {
-                emoji = ""
-            }
+            let emoji = titleEmoji.titleLabel!.text!
             CDManager.updatePlan(
                 plan: thisPlan!,
                 emoji: emoji,
