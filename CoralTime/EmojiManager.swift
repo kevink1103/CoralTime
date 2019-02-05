@@ -48,6 +48,11 @@ class EmojiManager {
         }
         
         var searchResult: [String] = []
+        for emoji in allEmojis {
+            if searchText == emoji {
+                searchResult.append(emoji)
+            }
+        }
         for alias in allAliases {
             if alias.contains(searchText.lowercased()) {
                 searchResult.append(EmojiParser.parseAliases(alias))

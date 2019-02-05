@@ -39,6 +39,20 @@ class CDManager {
         }
         return actionSet
     }
+    
+    // Load all recently used Emoji
+    static func loadRecentEmoji() -> [EmojiCD] {
+        var emojiSet: [EmojiCD] = []
+        
+        if let emojisCD = try? masterContext?.fetch(EmojiCD.fetchRequest()) as? [EmojiCD] {
+            if let emojis = emojisCD {
+                emojiSet = emojis.sorted { (left, right) -> Bool in
+                    left.timestamp! > right.timestamp!
+                }
+            }
+        }
+        return emojiSet
+    }
 
     // Add a Plan
     static func addPlan(emoji: String, title: String, target: Date, order: Int16) {
@@ -89,6 +103,21 @@ class CDManager {
         
         // Firebase Analytics
         FirebaseManager.addAction(plan: plan, emoji: emoji, title: title, duration: duration)
+    }
+    
+    // Add an EmojiCD record
+    static func addEmoji(emoji: String) {
+        let single = EmojiCD(entity: EmojiCD.entity(), insertInto: masterContext!)
+        
+        single.emoji = emoji
+        single.timestamp = Date()
+        
+        do {
+            try masterContext?.save()
+        } catch {
+            masterContext?.delete(single)
+            print ("There was an error")
+        }
     }
     
     // Update Notification Info in a Plan
@@ -164,6 +193,16 @@ class CDManager {
         return resultSet
     }
     
+    // Remove an EmojiCD Object
+    static func removeEmoji(emojiCD: EmojiCD) {
+        masterContext?.delete(emojiCD)
+        do {
+            try masterContext?.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
     // Rearrage Plans
     static func rearrangePlans(planSet: [PlanCD], from: Int, to: Int) -> [PlanCD] {
         var resultSet: [PlanCD] = planSet
@@ -202,8 +241,9 @@ class CDManager {
         return resultSet
     }
     
+    // Delete All for Development
     static func deleteAll() {
-        for entity in ["PlanCD", "ActionCD"] {
+        for entity in ["PlanCD", "ActionCD", "EmojiCD"] {
             let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
             

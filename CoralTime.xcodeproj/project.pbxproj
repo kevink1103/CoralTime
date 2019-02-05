@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A2FFD5321F08BFE007C2FBB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */; };
+		0A4B62B522089E5A00C2AEC8 /* CustomCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4B62B422089E5A00C2AEC8 /* CustomCollectionReusableView.swift */; };
 		0A9BC94D21EC633B00EDB7A8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */; };
 		0AA6CF4121F99232001F8632 /* EmojiSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6CF4021F99232001F8632 /* EmojiSearchViewController.swift */; };
 		0AA6CF4321F99B25001F8632 /* EmojiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6CF4221F99B25001F8632 /* EmojiManager.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		0A4B62B422089E5A00C2AEC8 /* CustomCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionReusableView.swift; sourceTree = "<group>"; };
 		0A9BC94C21EC633B00EDB7A8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		0AA6CF4021F99232001F8632 /* EmojiSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSearchViewController.swift; sourceTree = "<group>"; };
 		0AA6CF4221F99B25001F8632 /* EmojiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiManager.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				0ADE1E3F21F168FE0047DB7D /* RandomText.swift */,
 				0AC64C1021E60638006D0195 /* SampleText.swift */,
 				0AC64C1521E82C44006D0195 /* CustomCell.swift */,
+				0A4B62B422089E5A00C2AEC8 /* CustomCollectionReusableView.swift */,
 				0A2FFD5221F08BFE007C2FBB /* CustomButton.swift */,
 				0AE5141521E5E30F00AE3A2E /* HexToUIColor.swift */,
 				0AE5140021DFACE800AE3A2E /* ViewControllers */,
@@ -309,6 +312,7 @@
 				0AE513EC21DFAA0400AE3A2E /* AppDelegate.swift in Sources */,
 				0AE5141021E3476100AE3A2E /* EditActionTableViewController.swift in Sources */,
 				0A2FFD5321F08BFE007C2FBB /* CustomButton.swift in Sources */,
+				0A4B62B522089E5A00C2AEC8 /* CustomCollectionReusableView.swift in Sources */,
 				0AE5140221DFACF700AE3A2E /* PlansTableViewController.swift in Sources */,
 				0AA6CF4321F99B25001F8632 /* EmojiManager.swift in Sources */,
 				0AE5141D21E5F85E00AE3A2E /* AboutViewController.swift in Sources */,

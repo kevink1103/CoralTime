@@ -547,18 +547,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-E9-dT0">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="safeArea" id="Hdg-7D-lef"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QLu-Fj-HVp">
                                     <size key="itemSize" width="45" height="45"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="35"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="emojiCell" id="8EO-wu-ouf" customClass="EmojiCell" customModule="CoralTime" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <rect key="frame" x="0.0" y="35" width="45" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
@@ -583,6 +583,29 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="emojiHeader" id="Vnm-Vc-53i" customClass="CustomCollectionReusableView" customModule="CoralTime" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-eM-5bb">
+                                            <rect key="frame" x="0.0" y="11.5" width="80" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="TpC-AU-lNx"/>
+                                                <constraint firstAttribute="width" constant="80" id="d0m-RI-Q8e"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" name="dark_coral"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gPs-eM-5bb" firstAttribute="leading" secondItem="Vnm-Vc-53i" secondAttribute="leading" id="HZu-cq-qkf"/>
+                                        <constraint firstItem="gPs-eM-5bb" firstAttribute="centerY" secondItem="Vnm-Vc-53i" secondAttribute="centerY" constant="3" id="TLB-1Y-z2I"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="title" destination="gPs-eM-5bb" id="EHm-pT-fiX"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="13a-oS-hwn" id="vbS-y2-0O3"/>
                                     <outlet property="delegate" destination="13a-oS-hwn" id="141-bF-f9O"/>
@@ -591,14 +614,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ybi-E9-dT0" firstAttribute="bottom" secondItem="wO7-AN-Tk3" secondAttribute="bottom" id="GUU-TS-cUG"/>
-                            <constraint firstItem="ybi-E9-dT0" firstAttribute="top" secondItem="Hnv-fe-z2F" secondAttribute="top" id="aF0-Eq-9HE"/>
-                            <constraint firstItem="ybi-E9-dT0" firstAttribute="leading" secondItem="wO7-AN-Tk3" secondAttribute="leading" id="nqo-v7-W3R"/>
-                            <constraint firstAttribute="trailing" secondItem="ybi-E9-dT0" secondAttribute="trailing" id="rDx-G6-Ybs"/>
+                            <constraint firstItem="ybi-E9-dT0" firstAttribute="bottom" secondItem="wO7-AN-Tk3" secondAttribute="bottom" id="G5b-gG-NyQ"/>
+                            <constraint firstAttribute="trailing" secondItem="ybi-E9-dT0" secondAttribute="trailing" id="ZML-cJ-kE9"/>
+                            <constraint firstItem="ybi-E9-dT0" firstAttribute="leading" secondItem="wO7-AN-Tk3" secondAttribute="leading" id="bw6-Q6-0Pp"/>
+                            <constraint firstItem="ybi-E9-dT0" firstAttribute="top" secondItem="Hnv-fe-z2F" secondAttribute="top" id="j1f-Jq-Rca"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hnv-fe-z2F"/>
                     </view>
-                    <navigationItem key="navigationItem" title="EMOJI" id="TVj-GH-J09">
+                    <navigationItem key="navigationItem" title="EMOJI" largeTitleDisplayMode="never" id="TVj-GH-J09">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Qhh-ul-c4R">
                             <connections>
                                 <action selector="trashPressed:" destination="13a-oS-hwn" id="5S5-b9-nbV"/>
@@ -1002,12 +1025,15 @@ Swipe Left - Delete</string>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="dark_coral">
+            <color red="0.17647058823529413" green="0.16470588235294117" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="living_coral">
             <color red="0.98039215686274506" green="0.44705882352941179" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kPx-TZ-0an"/>
-        <segue reference="zX9-qN-Hby"/>
+        <segue reference="NVs-ig-1Vt"/>
     </inferredMetricsTieBreakers>
 </document>
