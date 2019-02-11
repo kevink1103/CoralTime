@@ -129,7 +129,12 @@ class NotificationManager {
         
         let content = UNMutableNotificationContent()
         content.title = title
-        content.body = "Get yourself moving!"
+        if currentLang == "ko" {
+            content.body = "이제 슬슬 움직이셔야죠!"
+        }
+        else {
+            content.body = "Get yourself moving!"
+        }
         content.sound = UNNotificationSound.default
         
         let date = procCalcedTime(target: (plan.target)!, actionSet: actionSet)
