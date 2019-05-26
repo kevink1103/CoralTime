@@ -18,7 +18,7 @@ class CDManager {
     static func loadPlans() -> [PlanCD] {
         var planSet: [PlanCD] = []
         
-        if let plansCD = try? masterContext?.fetch(PlanCD.fetchRequest()) as? [PlanCD] {
+        if let plansCD = ((try? masterContext?.fetch(PlanCD.fetchRequest()) as? [PlanCD]) as [PlanCD]??) {
             if let plans = plansCD {
                 planSet = plans.sorted { (left, right) -> Bool in
                     left.order < right.order
@@ -44,7 +44,7 @@ class CDManager {
     static func loadRecentEmoji() -> [EmojiCD] {
         var emojiSet: [EmojiCD] = []
         
-        if let emojisCD = try? masterContext?.fetch(EmojiCD.fetchRequest()) as? [EmojiCD] {
+        if let emojisCD = ((try? masterContext?.fetch(EmojiCD.fetchRequest()) as? [EmojiCD]) as [EmojiCD]??) {
             if let emojis = emojisCD {
                 emojiSet = emojis.sorted { (left, right) -> Bool in
                     left.timestamp! > right.timestamp!

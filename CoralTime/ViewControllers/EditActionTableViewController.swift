@@ -14,6 +14,7 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     var previousVC = ActionsViewController()
     var actionIndex = 0
     var thisAction: ActionCD? = nil
+    var emojiChanged: Bool = false
     
     // UI Part
     @IBOutlet weak var titleEmoji: UIButton!
@@ -48,7 +49,10 @@ class EditActionTableViewController: UITableViewController, UITextFieldDelegate 
     @IBAction func donePressed(_ sender: Any) {
         let titleText = actionTitle.text
         if titleText!.count > 0 {
-            let emoji = titleEmoji.titleLabel!.text!
+            var emoji = titleEmoji.titleLabel!.text!
+            if !emojiChanged && thisAction?.emoji == "" {
+                emoji = ""
+            }
             CDManager.updateAction(
                 action: thisAction!,
                 emoji: emoji,

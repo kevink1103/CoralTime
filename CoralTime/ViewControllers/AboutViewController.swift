@@ -27,12 +27,12 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     @IBAction func feedbackPressed(_ sender: Any) {
-        guard let url = URL(string: "https://kevink1103.github.io/blog/2019/01/10/coral-time-feedback.html") else { return }
+        guard let url = URL(string: "https://www.notion.so/Feedback-38b9c3f27a4f4720a33303afb2d9c582") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func privacyPressed(_ sender: Any) {
-        guard let url = URL(string: "https://kevink1103.github.io/blog/2019/01/10/coral-time-privacy-policy.html") else { return }
+        guard let url = URL(string: "https://www.notion.so/Privacy-Policy-20fed54c37524cf485d9958c43426a82") else { return }
         UIApplication.shared.open(url)
     }
     

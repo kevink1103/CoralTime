@@ -13,6 +13,7 @@ import FirebaseAnalytics
 class PlansTableViewController: UITableViewController {
     
     // Global Variables
+    let currentLang: String = Mode.currentLang
     var planSet: [PlanCD] = []
     
     // UI Part
@@ -83,9 +84,18 @@ class PlansTableViewController: UITableViewController {
     
     @objc func editTable() {
         // Set Table to Edit Mode
+        var done: String = ""
+        
         if tableView.isEditing != true {
+            if currentLang == "ko" {
+                done = "완료"
+            }
+            else {
+                done = "Done"
+            }
+            
             tableView.setEditing(true, animated: true)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(editTable))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: done, style: UIBarButtonItem.Style.done, target: self, action: #selector(editTable))
         }
         // Set Table to Normal Mode
         else {

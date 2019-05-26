@@ -141,6 +141,8 @@ class EmojiSearchViewController: UIViewController, UISearchResultsUpdating, UICo
         else if lastViewController is EditPlanTableViewController {
             let lastViewController: EditPlanTableViewController = lastViewController as! EditPlanTableViewController
             lastViewController.titleEmoji.setTitle(title, for: .normal)
+            lastViewController.thisPlan?.emoji = ""
+            lastViewController.emojiChanged = emojiMode
         }
         else if lastViewController is AddActionTableViewController {
             let lastViewController: AddActionTableViewController = lastViewController as! AddActionTableViewController
@@ -150,6 +152,8 @@ class EmojiSearchViewController: UIViewController, UISearchResultsUpdating, UICo
         else if lastViewController is EditActionTableViewController {
             let lastViewController: EditActionTableViewController = lastViewController as! EditActionTableViewController
             lastViewController.titleEmoji.setTitle(title, for: .normal)
+            lastViewController.thisAction?.emoji = ""
+            lastViewController.emojiChanged = emojiMode
         }
     }
     

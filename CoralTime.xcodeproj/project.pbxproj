@@ -45,7 +45,6 @@
 		0AA6CF4021F99232001F8632 /* EmojiSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSearchViewController.swift; sourceTree = "<group>"; };
 		0AA6CF4221F99B25001F8632 /* EmojiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiManager.swift; sourceTree = "<group>"; };
 		0AC64C1021E60638006D0195 /* SampleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleText.swift; sourceTree = "<group>"; };
-		0AC64C1221E608BF006D0195 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0AC64C1321E6462F006D0195 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		0AC64C1521E82C44006D0195 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		0AC87AAE21F84E6100083BBC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 		0AE513EA21DFAA0400AE3A2E /* CoralTime */ = {
 			isa = PBXGroup;
 			children = (
-				0AC64C1221E608BF006D0195 /* Playground.playground */,
 				0AE513EB21DFAA0400AE3A2E /* AppDelegate.swift */,
 				0AD1A94A21F616DB00CB8D1A /* Mode.swift */,
 				0AE5140521DFAE3B00AE3A2E /* CDManager.swift */,
@@ -203,6 +201,7 @@
 				TargetAttributes = {
 					0AE513E721DFAA0400AE3A2E = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -213,6 +212,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 0AE513DF21DFAA0400AE3A2E;
 			productRefGroup = 0AE513E921DFAA0400AE3A2E /* Products */;
@@ -486,7 +486,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinkim.CoralTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -506,7 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinkim.CoralTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
